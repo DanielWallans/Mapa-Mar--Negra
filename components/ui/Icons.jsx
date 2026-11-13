@@ -10,3 +10,6 @@ export const CompassIcon = (p) => (
 export const AnchorIcon = (p) => (
   <svg {...base} {...p}><circle cx="12" cy="5" r="2.5" /><path d="M12 7.5V22M8 11h8" /><path d="M4 14a8 8 0 0 0 16 0" /><path d="M2 15l2-2 2 2M18 15l2-2 2 2" /></svg>
 );
+export const ScrollIcon = (p) => (
+  <svg {...base} {...p}><path d="M6 3h12a2 2 0 0 1 2 2v1H8" /><path d="M8 6v13a2 2 0 0 1-4 0v-2h4" /><path d="M8 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V6" /><path d="M11 10h6M11 14h5" /></svg>
+);

@@ -203,3 +203,7 @@ button { font: inherit; color: inherit; }
 /* pergaminho rolável dentro da tela */
 .paper { max-height: calc(100dvh - 32px); }
 .paper .scroll { max-height: calc(100dvh - 32px); overflow-y: auto; overscroll-behavior: contain; }
+
+/* pergaminho "Sobre este diário" */
+.about-steps { padding-left: 1.1em; }
+.about-steps li { margin: .35em 0; }

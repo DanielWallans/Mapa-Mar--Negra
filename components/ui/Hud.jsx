@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence, animate } from "motion/react";
 import { ILHAS, DIARIO, PREVISTO, DIAS_CONCLUIDOS } from "@/lib/data";
 import { estado, isBoss } from "@/lib/world";
-import { BookIcon, CompassIcon } from "./Icons";
+import { BookIcon, CompassIcon, ScrollIcon } from "./Icons";
+import About from "./About";
 
 const ROMANOS = ["I", "II", "III", "IV"];
 const ease = [.22, 1, .36, 1];
@@ -17,6 +18,17 @@ export function TopBar({ show }) {
   }, [show]);
   const C = 2 * Math.PI * 27;
   const [go, setGo] = useState(false);
+  const [about, setAbout] = useState(false);
+  // na primeira visita, o pergaminho "Sobre" abre sozinho depois da intro
+  useEffect(() => {
+    if (!show) return;
+    let visto = true;
+    try { visto = !!localStorage.getItem("mare-sobre"); localStorage.setItem("mare-sobre", "1"); } catch {}
+    if (visto) return;
+    const t = setTimeout(() => setAbout(true), 1800);
+    return () => clearTimeout(t);
+  }, [show]);
+  const btn = { pointerEvents: "auto", display: "inline-flex", alignItems: "center", gap: 7, marginTop: 8, padding: "4px 12px", border: "1px solid #e0a94a", color: "#e0a94a", fontSize: 13, borderRadius: 4, background: "rgba(16,13,10,.6)", cursor: "pointer", font: "inherit" };
   return (
     <header className="hud-top">
       <AnimatePresence>
@@ -36,7 +48,8 @@ export function TopBar({ show }) {
       <motion.div className="brand" initial={{ opacity: 0, y: -24 }} animate={show ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1, ease }}>
         <h1>Maré Negra</h1>
         <div className="sub">Carta náutica · Java, ilha por ilha</div>
-        <a className="diario-link" href="/diario/index.html" onClick={(e) => { e.preventDefault(); setGo(true); setTimeout(() => (location.href = "/diario/index.html"), 1900); }} style={{ pointerEvents: "auto", display: "inline-block", marginTop: 8, padding: "4px 12px", border: "1px solid #e0a94a", color: "#e0a94a", fontSize: 13, borderRadius: 4, background: "rgba(16,13,10,.6)" }}><BookIcon /> Diário de Bordo Java</a>
+        <a className="diario-link" href="/diario/index.html" onClick={(e) => { e.preventDefault(); setGo(true); setTimeout(() => (location.href = "/diario/index.html"), 1900); }} style={btn}><BookIcon /> Diário de Bordo Java</a>
+        <button type="button" onClick={() => setAbout(true)} style={{ ...btn, marginLeft: 8 }}><ScrollIcon /> Sobre este diário</button>
       </motion.div>
       <motion.div className="progress" aria-live="polite" initial={{ opacity: 0, x: 30 }} animate={show ? { opacity: 1, x: 0 } : {}} transition={{ duration: 1, delay: .2, ease }}>
         <svg viewBox="0 0 64 64" className="ring" aria-hidden="true">
@@ -46,6 +59,7 @@ export function TopBar({ show }) {
         </svg>
         <div><b>{n} / 30</b><span>dias navegados</span></div>
       </motion.div>
+      <About open={about} onClose={() => setAbout(false)} />
     </header>
   );
 }
