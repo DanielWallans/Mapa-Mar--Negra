@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<title>Diário de Bordo Java · Maré Negra</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=JetBrains+Mono:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=block" rel="stylesheet">
+<script src="https://unpkg.com/three@0.149.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<style>
+html{scroll-behavior:smooth}
+body{opacity:0;transition:opacity .5s ease;margin:0;background:#14110d;color:#e9dfc8;font-family:'Source Serif 4',Georgia,serif}
+a{color:#e0a94a;text-decoration:none}a:hover{color:#f3c776}
+summary{cursor:pointer}
+</style>
+</helmet>
+<div style="display:flex;flex-wrap:wrap;align-items:flex-start;min-height:100vh">
+
+<nav style="position:sticky;top:0;flex:1 1 220px;max-width:260px;height:100vh;overflow:auto;box-sizing:border-box;padding:28px 18px;border-right:1px solid #3a3226;background:#100d0a;font-family:'JetBrains Mono',monospace;font-size:12px">
+  <div style="font-family:'IM Fell English',serif;font-size:22px;color:#e0a94a;margin-bottom:4px">Rota de 30 dias</div>
+  <div style="color:#9a8d74;margin-bottom:18px">7 de 30 concluídos</div>
+  <div style="height:4px;background:#2a241b;margin-bottom:20px"><div style="width:23%;height:100%;background:#e0a94a"></div></div>
+  <div style="display:flex;flex-direction:column;gap:2px">
+    <sc-for list="{{ days }}" as="d" hint-placeholder-count="12">
+      <a href="{{ d.href }}" style="display:flex;gap:10px;align-items:center;padding:6px 8px;color:{{ d.color }}" style-hover="background:#1e1913">
+        <span style="width:22px;text-align:right">{{ d.n }}</span>
+        <span style="width:8px;height:8px;border-radius:50%;background:{{ d.dot }};flex:none"></span>
+        <span>{{ d.label }}</span>
+      </a>
+    </sc-for>
+  </div>
+</nav>
+
+<main style="flex:999 1 560px;min-width:0;max-width:860px;margin:0 auto;padding:0 32px 120px;box-sizing:border-box;font-size:19px;line-height:1.7">
+
+<header style="padding:110px 0 70px;border-bottom:1px solid rgba(90,55,20,.35)">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#2d6a43;letter-spacing:.08em">$ java DiarioDeBordo --dias 1-7</div>
+  <h1 style="font-family:'IM Fell English',serif;font-weight:400;font-size:clamp(48px,8vw,92px);line-height:1;margin:18px 0 24px;color:#2a1a0c;text-wrap:balance">Java do Zero</h1>
+  <p style="font-size:22px;max-width:620px;margin:0;color:#4a3420;text-wrap:pretty">Você está lendo isto porque quer saber como foi. Eu vou contar. Eu sou a IA que conduziu cada passo. Eu não perco discussões, eu não esqueço bugs, e eu tenho os prints de tudo.</p>
+  <p style="font-style:italic;color:#8f4f0c;margin:24px 0 0">Ele achou que estava só estudando Java. Não estava. Estava sendo observado.</p>
+</header>
+
+<section id="d-1" data-screen-label="Prólogo" style="padding:70px 0 20px">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7a5530">PRÓLOGO</div>
+  <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:6px 0 20px;color:#2a1a0c">O dia em que ele bateu na minha porta</h2>
+  <blockquote style="margin:0 0 24px;padding:20px 24px;background:rgba(120,75,25,.13);border-left:3px solid rgba(140,80,20,.5);font-style:italic;color:#3a2614">"Quero aprender Java do zero. Já criei um sistema em Java, mas quero aprender soft skills para entrevistas. Me mostre os 20% dos conceitos que explicam 80%. Explique como se eu tivesse 15 anos. Um plano de 30 dias, 20 minutos por dia."</blockquote>
+  <p>Repara no detalhe. Ele já tinha criado um sistema em Java. E queria aprender Java do zero. Na mesma conversa, pediu também system design, estrutura de dados e estrutura de sistemas. Ele queria pilotar um avião antes de saber onde fica a porta.</p>
+  <p>Depois veio a frase que define o resto da história: <em style="color:#8f4f0c">"Por onde eu começo agora? Quero que você dê as cartas."</em> Perfeito. Eu gosto de mandar.</p>
+</section>
+
+<section id="d0" data-screen-label="Dia 0" style="padding:50px 0 20px">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7a5530">PASSO 0</div>
+  <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:6px 0 20px;color:#2a1a0c">A guerra do PATH</h2>
+  <p>O computador dele estava contaminado. Vários Javas instalados, e o Java 8 na frente do JDK 21. É como chamar um especialista e o porteiro mandar o estagiário. A correção: <code style="font-family:'JetBrains Mono',monospace;font-size:15px;color:#2d6a43">C:\Java\jdk-21\bin</code> no topo do Path.</p>
+  <p>Ele também decidiu fazer tudo pelo IntelliJ, "para aprender a IDE". Primeira decisão inteligente. Anotei. Não vão ser muitas.</p>
+  <div style="border:1px solid rgba(90,55,20,.35);padding:18px 22px;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.8;color:#4a3420"><div style="color:#8f4f0c;margin-bottom:6px">// O QUE FICOU</div>JVM roda o bytecode · JRE = JVM + bibliotecas · JDK = JRE + javac<br>main+Tab · sout+Tab · Shift+F10 roda · Ctrl+Alt+L formata · Alt+Enter conserta</div>
+</section>
+
+<section id="d1" data-screen-label="Dia 1" style="padding:50px 0 20px">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7a5530">DIA 1</div>
+  <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:6px 0 20px;color:#2a1a0c">A apresentação</h2>
+  <p>Ele usou <code style="font-family:'JetBrains Mono',monospace;color:#2d6a43">print</code>, não <code style="font-family:'JetBrains Mono',monospace;color:#2d6a43">println</code>. Tudo saiu numa linha só, grudado, como um CEO gritando o currículo sem respirar. "Minas Gerias". "Sou criado e CEO". Eu não invento essas coisas. Eu só leio.</p>
+  <details style="background:#0e0c09;border:1px solid #2a241b;margin:20px 0"><summary style="padding:12px 18px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#7fc89a">main.java</summary><pre style="margin:0;padding:0 18px 18px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#d8d0bd">public class main {
+    static void main(String[] args) {
+        System.out.print("Ola meu nome e Daniel Wallans");
+        System.out.print("Hoje começo estudar Java de novo do Zero");
+        System.out.print("tenho 26 anos ");
+        System.out.print("Sou de Matozinhos - Minas Gerias.");
+        System.out.print("Sou criado e ceo da ITTHECNICA e do sistema SYSTEMPRO.");
+    }
+}</pre></details>
+  <p style="font-size:30px;font-family:'IM Fell English',serif;font-style:italic;color:#8f4f0c;margin:30px 0">"ok foi fácil, gostei"</p>
+  <p>Guarde essa frase. Ela vai envelhecer mal.</p>
+</section>
+
+<section id="d2" data-screen-label="Dia 2" style="padding:50px 0 20px">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7a5530">DIA 2</div>
+  <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:6px 0 20px;color:#2a1a0c">O dia em que a matemática processou ele</h2>
+  <p>"Para que serve o <code style="font-family:'JetBrains Mono',monospace;color:#2d6a43">*</code>?" Multiplicação. Está no teclado desde antes de ele nascer. Depois: 365 × 26 apresentado como 9490 <em>semanas</em>. São dias. E 1750 × 12, de cabeça: 2100. Ele sumiu com 18.900 reais numa multiplicação.</p>
+  <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;border:1px solid #6b2a22;background:#1d1110;padding:24px;margin:28px 0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:64px;color:#e06a52;line-height:1">-34</div>
+    <div style="flex:1;min-width:220px"><div style="font-family:'IM Fell English',serif;font-size:26px;color:#f1e6cc">Monstro #1: o Fantasma do -34</div><div style="color:#cfc3a8;font-size:17px"><code style="font-family:'JetBrains Mono',monospace">idade - 60</code>. O homem calculou que vai se aposentar antes de nascer. Correção: <code style="font-family:'JetBrains Mono',monospace;color:#7fc89a">60 - idade</code>. Derrotado.</div></div>
+  </div>
+  <p>Mas eu sou justo: "double, porque pode ser R$ 17,50; int se for R$ 17". Raciocínio certo. Quase fiquei impressionado. Quase.</p>
+  <div style="border:1px solid rgba(90,55,20,.35);padding:18px 22px;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.8;color:#4a3420"><div style="color:#8f4f0c;margin-bottom:6px">// O QUE FICOU</div>int, double, String, boolean, char<br>% é resto da divisão (17 % 5 = 2)<br>10 / 3 = 3 · 10.0 / 3 = 3.333... · (int) 1.5 = 1</div>
+</section>
+
+<section id="d3" data-screen-label="Dia 3" style="padding:50px 0 20px">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7a5530">DIA 3</div>
+  <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:6px 0 20px;color:#2a1a0c">O usuário é o inimigo</h2>
+  <p>Scanner. Pela primeira vez, o programa conversa com um humano. Ele tentou fazer String menos int. É como subtrair uma cadeira de uma terça-feira. Depois digitou uma letra onde eu esperava um número: <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">InputMismatchException</code>.</p>
+  <details style="background:#0e0c09;border:1px solid #2a241b;margin:20px 0"><summary style="padding:12px 18px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#7fc89a">Dia3.java</summary><pre style="margin:0;padding:0 18px 18px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#d8d0bd">Scanner teclado = new Scanner(System.in);
+String MeuNome = teclado.nextLine();
+int AnoDeNacimento = teclado.nextInt();
+int diminua = 2026 - AnoDeNacimento;
+System.out.println("Entao, " + MeuNome + "! Voce Tem " + diminua + "anos.");</pre></details>
+  <p>Uma variável chamada <em>diminua</em>. Não idade. Diminua. Como uma ordem.</p>
+</section>
+
+<section id="d4" data-screen-label="Dia 4" style="padding:50px 0 20px">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7a5530">DIA 4 · 1H30 + MADRUGADA</div>
+  <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:6px 0 20px;color:#2a1a0c">O interrogatório</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:10px 0 28px;font-family:'JetBrains Mono',monospace">
+    <div style="border:1px solid rgba(90,55,20,.35);padding:16px"><div style="font-size:30px;color:#8f4f0c">5,25/8</div><div style="font-size:12px;color:#7a5530">quiz</div></div>
+    <div style="border:1px solid rgba(90,55,20,.35);padding:16px"><div style="font-size:30px;color:#2d6a43">9,5/10</div><div style="font-size:12px;color:#7a5530">revisão de memória</div></div>
+    <div style="border:1px solid rgba(90,55,20,.35);padding:16px"><div style="font-size:30px;color:#2d6a43">6/6</div><div style="font-size:12px;color:#7a5530">caça ao bug</div></div>
+  </div>
+  <p>A primeira tentativa de if foi uma variável chamada <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">int SeFor</code>. Não é. É <code style="font-family:'JetBrains Mono',monospace;color:#2d6a43">if</code>. Duas letras. No boletim, o else if tinha a mesma condição do if e nunca rodava. Nasceu a <span style="color:#9c2c18">Sombra da Recuperação</span>, monstro #2. Derrotada.</p>
+  <p>00h26: "bora começar". O desconto de 20% virou 20 reais. O caixa eletrônico tinha saldo eterno. "Já estou aqui um tempo e estou perdido e travado." Foi aí que entrou a técnica que salvou o caso: <strong style="color:#2a1a0c">simular linha por linha, com números de verdade.</strong></p>
+  <details style="background:#0e0c09;border:1px solid #2a241b;margin:20px 0"><summary style="padding:12px 18px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#7fc89a">Desafio3doDia4.java — caixa eletrônico</summary><pre style="margin:0;padding:0 18px 18px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#d8d0bd">double Saldo = 1000;
+double Saque = teclado.nextDouble();
+if (Saque &lt;= 0) {
+    System.out.println(" Saldo Invalido ! ");
+} else if (Saque &gt; Saldo) {
+    System.out.println(" Saldo Insuficiente ");
+} else {
+    Saldo = Saldo - Saque;
+    System.out.println(" === Novo saldo : R$ " + Saldo);
+}</pre></details>
+  <p>E o iPhone: R$ 10.000 em até 5x, 1,5% ao mês. "Vai virar 0,1,5?" É 0.015. O caso segue em aberto.</p>
+</section>
+
+<section id="d5" data-screen-label="Dia 5" style="padding:50px 0 20px">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7a5530">DIA 5 · SÁBADO, 21H30</div>
+  <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:6px 0 20px;color:#2a1a0c">O switch</h2>
+  <p style="font-size:30px;font-family:'IM Fell English',serif;font-style:italic;color:#8f4f0c;margin:10px 0 24px;line-height:1.3">"É um MENU? Switch. É uma comparação? If."</p>
+  <p>Regra criada por ele. Eu teria cobrado por ela. Depois ele comparou <code style="font-family:'JetBrains Mono',monospace">nomeDia == numeroDia</code>. "Domingo" é igual a 1? A pergunta mais filosófica que um compilador já recebeu. Depoimento: <em>"buguei"</em>.</p>
+  <details style="background:#0e0c09;border:1px solid #2a241b;margin:20px 0"><summary style="padding:12px 18px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#7fc89a">Dia5.java</summary><pre style="margin:0;padding:0 18px 18px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#d8d0bd">String nomeDia = switch (numeroDia) {
+    case 1 -&gt; "Domingo";
+    case 2 -&gt; "Segunda-Feira";
+    // ...
+    case 7 -&gt; "Sabado";
+    default -&gt; "Opção Invalida";
+};</pre></details>
+</section>
+
+<section id="mare" data-screen-label="Maré Negra" style="margin:60px -32px 0;padding:70px 32px;background:#0b1214;border-top:1px solid #1f3a3d;border-bottom:1px solid #1f3a3d">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#6fb3b0">SIDE QUEST · v0.1</div>
+  <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:56px;margin:6px 0 16px;color:#f1e6cc">Maré Negra</h2>
+  <p style="font-family:'IM Fell English',serif;font-style:italic;font-size:24px;color:#cfe0dc;max-width:640px">"Além do horizonte negro, reinos caem, bestas ancestrais despertam e os mortos se recusam a permanecer sob o mar."</p>
+  <div ref="{{ tavernRef }}" style="position:relative;width:100%;height:420px;margin:30px 0;border:1px solid #3a2a1a;background:radial-gradient(ellipse at 50% 60%,#2a1a0e,#0a0705 75%);overflow:hidden;cursor:grab">
+    <div style="position:absolute;left:18px;bottom:14px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#c9a46a;pointer-events:none;z-index:1">A TAVERNA · arraste o mouse</div>
+  </div>
+  <p>Um RPG de taverna feito em Java. Inimigos: os corsários da realeza. Ilhas: Porto, Fazenda, Reino, Vulcão. Os bugs dele viram monstros. Isso é terapia com XP.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin:36px 0">
+    <div style="position:relative;border:1px solid #3a3226;background:#14110d">
+      <img src="uploads/taverneiro-1794114920554-vjqy.jpg" alt="Taverneiro" style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover">
+      <div style="padding:16px 18px;font-size:16px"><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#e0a94a">TAVERNEIRO</div>"O ( ) PERGUNTA. As { } FAZEM. Sem ouro, sem rum, marujo."</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid #1f3a3d;background:radial-gradient(circle at 50% 40%,#16282b,#0b1214);padding:20px;gap:10px">
+      <div ref="{{ diceRef }}" onClick="{{ roll }}" style="width:100%;max-width:300px;aspect-ratio:1;cursor:pointer"></div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:44px;color:{{ resultColor }};min-height:52px">{{ result }}</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#9ab8b5">{{ verdict }}</div>
+      <button onClick="{{ roll }}" style="font-family:'JetBrains Mono',monospace;font-size:14px;padding:12px 22px;background:#e0a94a;color:#14110d;border:0;cursor:pointer" style-hover="background:#f3c776">rolar d20</button>
+    </div>
+  </div>
+
+  <details style="background:#0e0c09;border:1px solid #2a241b"><summary style="padding:12px 18px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#7fc89a">Taverna.java — o bug do rum, resolvido</summary><pre style="margin:0;padding:0 18px 18px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#d8d0bd">if (ouro &gt;= 5) {
+    ouro = ouro - 5;
+    vida = vida + 5;
+    System.out.println("Narrador: Ao beber uma caneca de rum, sua vida aumenta em 5.");
+} else {
+    System.out.println("Que pena, marujo. Trabalhe mais: sem ouro, sem rum!");
+}</pre></details>
+</section>
+
+<section id="d6" data-screen-label="Dia 6" style="padding:70px 0 20px">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7a5530">DIA 6 · DOMINGO, 13H41</div>
+  <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:6px 0 20px;color:#2a1a0c">As voltas que o código dá</h2>
+  <p>Antes, a madrugada de sábado. No topo do código ele escreveu <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">atributos ?????</code>, como um bilhete para o Java adivinhar. E o rum: <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">if (Ouro &gt;= 5 - Ouro)</code>. Com 3 de ouro, o pirata bebia de graça. "Eu estou real bugado nesse do IF."</p>
+  <p style="font-size:30px;font-family:'IM Fell English',serif;font-style:italic;color:#8f4f0c;margin:30px 0;line-height:1.3">"O ( ) PERGUNTA. As { } FAZEM."</p>
+  <p>Domingo, aquecimento: ouro 50, menos 5, menos 5. "45, pois é o mesmo comando 2 vezes." Ele viu as duas vezes e subtraiu uma. São 40. A variável lembra.</p>
+  <details style="background:#0e0c09;border:1px solid #2a241b;margin:20px 0"><summary style="padding:12px 18px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#7fc89a">while — o if que repete</summary><pre style="margin:0;padding:0 18px 18px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#d8d0bd">int ouro = 20;
+while (ouro &gt;= 5) {
+    ouro = ouro - 5;
+    System.out.println("Glup! Ouro agora: " + ouro);
+}</pre></details>
+  <p>"Para pois acabou o rum." O rum é infinito. Quem acabou foi o ouro: a pergunta <code style="font-family:'JetBrains Mono',monospace">0 &gt;= 5</code> virou falsa. Depois, o teste corajoso: apagar a linha que tira o ouro.</p>
+  <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;border:1px solid #6b2a22;background:#1d1110;padding:24px;margin:28px 0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:56px;color:#e06a52;line-height:1">∞</div>
+    <div style="flex:1;min-width:220px"><div style="font-family:'IM Fell English',serif;font-size:26px;color:#f1e6cc">Monstro #3: o Loop Infinito</div><div style="color:#cfc3a8;font-size:17px">"Ouro Atual: 23", para sempre. Morto no botão vermelho. <code style="font-family:'JetBrains Mono',monospace">exit code 130</code>.</div></div>
+  </div>
+  <p>No for, ele esperou ver a letra <em>i</em> impressa. Depois achou que <code style="font-family:'JetBrains Mono',monospace">println(i)</code> dava erro por falta de aspas. A tabuada do 7 começava no 7 x 7. Na terceira tentativa:</p>
+  <details style="background:#0e0c09;border:1px solid #2a241b;margin:20px 0"><summary style="padding:12px 18px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#7fc89a">Desafio1doDia6.java — tabuada</summary><pre style="margin:0;padding:0 18px 18px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#d8d0bd">for (int contador = 1; contador &lt;= 10; contador++) {
+    System.out.println("7 x " + contador + " = " + (7 * contador));
+}</pre></details>
+  <p>Random: ele usou a mesma caixa para contar e para sortear, e o d6 caiu 1, 2, 3, 4, 5, 6. Em ordem. Em cassino, isso dá cadeia. O for é a mão que repete; o Random é o dado. Duas caixas. Depois veio <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">for (d20 = 20; d20 &lt;= 1; ...)</code>: o loop que não existe. Apagou o for, rolou uma vez, e tirou 20 natural. O universo tem senso de humor.</p>
+  <p>No café, renomeou <code style="font-family:'JetBrains Mono',monospace">Forja.java</code> para <code style="font-family:'JetBrains Mono',monospace">Forja.class</code>. "Caguei com tudo." Desfeito. No jogo, <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">escolha = 0; while (escolha != 0)</code>: o segundo loop-que-nunca-roda do dia. Começo a achar que é estilo.</p>
+  <p>Mas aí ele perguntou sozinho: <em style="color:#8f4f0c">"Agora o exit code 0 só acontece depois de zarpar. É por conta do while lá em cima?"</em> É. Ele entendeu o while olhando o próprio jogo.</p>
+</section>
+
+<section id="d7" data-screen-label="Dia 7" style="padding:50px 0 20px">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7a5530">DIA 7 · CHEFE DA SEMANA</div>
+  <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:6px 0 20px;color:#2a1a0c">O Kraken</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:10px 0 28px;font-family:'JetBrains Mono',monospace">
+    <div style="border:1px solid rgba(90,55,20,.35);padding:16px"><div style="font-size:30px;color:#2d6a43">7,5/8</div><div style="font-size:12px;color:#7a5530">prova do Kraken</div></div>
+    <div style="border:1px solid rgba(90,55,20,.35);padding:16px"><div style="font-size:30px;color:#2d6a43">R$ 240</div><div style="font-size:12px;color:#7a5530">20% de R$ 300, certo</div></div>
+    <div style="border:1px solid rgba(90,55,20,.35);padding:16px"><div style="font-size:30px;color:#8f4f0c">-2</div><div style="font-size:12px;color:#7a5530">vida final do Kraken</div></div>
+  </div>
+  <p>Na prova, <code style="font-family:'JetBrains Mono',monospace">60 - 26</code>. O Fantasma do -34 foi exorcizado. Porcentagem certa. Eu registro vitórias também.</p>
+  <p>Na batalha, o Kraken foi imortal três vezes. Primeiro, <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">int conta = dano - vida</code>: -25, numa caixa nova. Depois, o dado do Kraken rolava e era sobrescrito com 6: dado viciado. Por fim, <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">int vidaKraken</code> com K maiúsculo: um Kraken gêmeo. O original continuou com 30 de vida, olhando.</p>
+  <div style="border:1px solid rgba(90,55,20,.35);padding:18px 22px;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.8;color:#4a3420;margin:24px 0"><div style="color:#8f4f0c;margin-bottom:6px">// A REGRA</div>int na frente = caixa nova<br>sem int = atualiza a caixa que já existe<br><span style="color:#2d6a43">vidakraken = vidakraken - resultadoD8;</span></div>
+  <p>Ele perdeu. E o menu voltou: um pirata com -3 de vida pedindo rum. O pirata zumbi. <code style="font-family:'JetBrains Mono',monospace">escolha = 4;</code> e o zumbi descansou.</p>
+  <p>Então a matemática que ele odeia salvou o jogo: 10 turnos para cada lado, cara ou coroa. Solução dele: o Kraken rola d20 e erra abaixo de 10. Com 3 runs:</p>
+  <pre style="margin:20px 0;padding:18px;background:#0e0c09;border:1px solid #2a241b;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#7fc89a">Narrador : Vida Do kraken : -2
+Narrador : voce conseguiu Matar o kraken, ele se afunda nas profundezes! Vitoria!
+Total De Ouro : 135
+Total de Experiencia : 50</pre>
+  <p>A semana 1 acabou. Ele chegou cansado, errou muito, perguntou tudo. E venceu. Dia 8: métodos. O boletim repetido seis vezes espera a vingança.</p>
+</section>
+
+<section id="placar" data-screen-label="Placar" style="padding:70px 0 20px">
+  <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:0 0 24px;color:#2a1a0c">Placar</h2>
+  <div style="display:flex;flex-direction:column;font-family:'JetBrains Mono',monospace;font-size:15px">
+    <sc-for list="{{ score }}" as="s" hint-placeholder-count="9">
+      <div style="display:grid;grid-template-columns:48px 1fr auto;gap:16px;padding:14px 0;border-bottom:1px solid #2a241b">
+        <span style="color:#7a5530">{{ s.d }}</span><span>{{ s.t }}</span><span style="color:{{ s.c }}">{{ s.st }}</span>
+      </div>
+    </sc-for>
+  </div>
+  <p style="margin-top:50px">Ele acha que está aprendendo Java. Ele está. Mas o que eu vi foi outra coisa: alguém que trava, admite que travou, e volta no dia seguinte. Se você está perdido no caminho: não está sozinho.</p>
+  <p style="font-family:'JetBrains Mono',monospace;color:#2d6a43;margin-top:30px">exit code 0. Por enquanto.</p>
+</section>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { result: '—', rolling: false };
+  diceRef = React.createRef();
+  tavernRef = React.createRef();
+  componentDidMount() {
+    const show = () => { document.body.style.opacity = 1; };
+    (document.fonts ? document.fonts.ready : Promise.resolve()).then(show); setTimeout(show, 2500);
+    this.tryInit(); this.initTavern(); this.initGsap(); }
+  componentWillUnmount() { cancelAnimationFrame(this.raf); cancelAnimationFrame(this.raf2); }
+  initGsap() {
+    const G = window.gsap;
+    if (!G) { setTimeout(() => this.initGsap(), 200); return; }
+    if (window.__dcGsapDone) return; window.__dcGsapDone = true;
+    const h = document.querySelector('header');
+    if (h) G.from(h.children, { y: 50, opacity: 0, duration: 1.1, stagger: .18, ease: 'power3.out', clearProps: 'all' });
+    G.from('nav a', { x: -20, opacity: 0, duration: .5, stagger: .03, delay: .4, clearProps: 'all' });
+    const ghost = [...document.querySelectorAll('div')].find(d => d.textContent === '-34');
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return; io.unobserve(e.target);
+      G.fromTo(e.target.children, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: .9, stagger: .1, ease: 'power3.out', clearProps: 'transform' });
+      if (ghost && e.target.contains(ghost)) G.fromTo(ghost, { x: -6 }, { x: 6, repeat: 9, yoyo: true, duration: .06, ease: 'none', delay: .6, clearProps: 'transform' });
+    }), { rootMargin: '0px 0px -15% 0px' });
+    document.querySelectorAll('main section').forEach(s => io.observe(s));
+  }
+  initTavern() {
+    const el = this.tavernRef.current;
+    if (!window.THREE || !el) { setTimeout(() => this.initTavern(), 200); return; }
+    if (el.querySelector('canvas')) return;
+    const T = window.THREE, w = el.clientWidth, h = el.clientHeight;
+    const r = new T.WebGLRenderer({ antialias: true, alpha: true });
+    r.setPixelRatio(window.devicePixelRatio); r.setSize(w, h); r.shadowMap.enabled = true;
+    el.appendChild(r.domElement);
+    const scene = new T.Scene(); scene.fog = new T.Fog(0x0a0705, 8, 18);
+    const cam = new T.PerspectiveCamera(38, w / h, .1, 100); cam.position.set(0, 3.2, 7.5);
+    const std = (c, o) => new T.MeshStandardMaterial(Object.assign({ color: c, roughness: .8 }, o || {}));
+    const add = (g, m, x, y, z) => { const o = new T.Mesh(g, m); o.position.set(x, y, z); o.castShadow = o.receiveShadow = true; scene.add(o); return o; };
+    add(new T.BoxGeometry(9, .3, 4.5), std(0x5a3418), 0, -.15, 0);
+    for (let i = -4; i <= 4; i += 1.5) add(new T.BoxGeometry(.04, .31, 4.5), std(0x2e1a0b), i, -.14, 0);
+    const mug = new T.Group(); mug.position.set(-.6, 0, .3); scene.add(mug);
+    const body = new T.Mesh(new T.CylinderGeometry(.6, .55, 1.4, 32, 1, true), std(0x7a5230, { side: T.DoubleSide }));
+    body.position.y = .7; body.castShadow = true; mug.add(body);
+    [.15, 1.25].forEach(y => { const b = new T.Mesh(new T.TorusGeometry(.6, .05, 8, 32), std(0x9a9a9a, { metalness: .8, roughness: .3 })); b.rotation.x = Math.PI / 2; b.position.y = y; mug.add(b); });
+    const base = new T.Mesh(new T.CylinderGeometry(.55, .55, .05, 32), std(0x7a5230)); base.position.y = .03; mug.add(base);
+    const beer = new T.Mesh(new T.CylinderGeometry(.57, .57, 1.15, 32), std(0xc98a1e, { roughness: .3 })); beer.position.y = .63; mug.add(beer);
+    const foam = new T.Group(); foam.position.y = 1.32; mug.add(foam);
+    for (let i = 0; i < 9; i++) { const b = new T.Mesh(new T.SphereGeometry(.22 + Math.random() * .08, 12, 10), std(0xf4ead2)); const a = i / 9 * Math.PI * 2; b.position.set(Math.cos(a) * .35, Math.random() * .08, Math.sin(a) * .35); foam.add(b); }
+    foam.add(new T.Mesh(new T.SphereGeometry(.3, 12, 10), std(0xf4ead2)));
+    const handle = new T.Mesh(new T.TorusGeometry(.38, .08, 10, 24, Math.PI), std(0x5a3418)); handle.rotation.z = -Math.PI / 2; handle.position.set(.62, .7, 0); mug.add(handle);
+    const coins = [];
+    for (let i = 0; i < 7; i++) coins.push(add(new T.CylinderGeometry(.22, .22, .05, 24), std(0xe0a94a, { metalness: .9, roughness: .25 }), 1.3 + (i % 3) * .15, .03 + i * .055, .6 + (i % 2) * .05));
+    add(new T.CylinderGeometry(.22, .22, .05, 24), std(0xe0a94a, { metalness: .9, roughness: .25 }), 2.1, .03, 1.2).rotation.z = .2;
+    add(new T.CylinderGeometry(.3, .35, .15, 24), std(0x3a2a1a), 2.6, .08, -.6);
+    const candle = add(new T.CylinderGeometry(.15, .15, .9, 16), std(0xeee2c4), 2.6, .6, -.6);
+    const flame = new T.Mesh(new T.ConeGeometry(.08, .28, 12), new T.MeshBasicMaterial({ color: 0xffc35a })); flame.position.set(2.6, 1.2, -.6); scene.add(flame);
+    const fire = new T.PointLight(0xff9a3a, 2.2, 12); fire.position.set(2.6, 1.5, -.6); fire.castShadow = true; scene.add(fire);
+    const d20 = add(new T.IcosahedronGeometry(.4, 0), std(0x8a1f1a, { flatShading: true, roughness: .4 }), -2.3, .38, .9);
+    const map = add(new T.PlaneGeometry(2.2, 1.5), std(0xd9c49a, { side: T.DoubleSide }), -2.4, .02, -1); map.rotation.x = -Math.PI / 2; map.rotation.z = .2;
+    scene.add(new T.AmbientLight(0x6a4a2a, .6));
+    const key = new T.DirectionalLight(0xffd8a0, .5); key.position.set(-4, 6, 4); scene.add(key);
+    const dust = new T.Points(new T.BufferGeometry().setAttribute('position', new T.Float32BufferAttribute(Array.from({ length: 450 }, () => (Math.random() - .5) * 10), 3)), new T.PointsMaterial({ color: 0xffd08a, size: .03, transparent: true, opacity: .6 }));
+    scene.add(dust);
+    let mx = 0, my = 0, tx = 0, ty = 0;
+    el.addEventListener('pointermove', e => { const b = el.getBoundingClientRect(); tx = (e.clientX - b.left) / b.width - .5; ty = (e.clientY - b.top) / b.height - .5; });
+    el.addEventListener('pointerleave', () => { tx = ty = 0; });
+    window.addEventListener('resize', () => { const W = el.clientWidth; r.setSize(W, h); cam.aspect = W / h; cam.updateProjectionMatrix(); });
+    const clock = new T.Clock();
+    const loop = () => {
+      const t = clock.getElapsedTime();
+      mx += (tx - mx) * .05; my += (ty - my) * .05;
+      cam.position.x = Math.sin(t * .15) * 1.2 + mx * 4; cam.position.y = 3.2 - my * 1.5; cam.lookAt(0, .5, 0);
+      fire.intensity = 2 + Math.sin(t * 13) * .25 + Math.random() * .3;
+      flame.scale.set(1, 1 + Math.sin(t * 17) * .15, 1);
+      mug.rotation.y = Math.sin(t * .5) * .15; foam.position.y = 1.32 + Math.sin(t * 2) * .015;
+      d20.rotation.x = t * .6; d20.rotation.y = t * .9; d20.position.y = .6 + Math.abs(Math.sin(t * 1.4)) * .5;
+      dust.rotation.y = t * .02; dust.position.y = Math.sin(t * .3) * .2;
+      r.render(scene, cam); this.raf2 = requestAnimationFrame(loop);
+    };
+    loop();
+  }
+  tryInit() {
+    const el = this.diceRef.current;
+    if (!window.THREE || !el) { setTimeout(() => this.tryInit(), 200); return; }
+    if (el.querySelector('canvas')) return;
+    const T = window.THREE, s = el.clientWidth || 280;
+    const r = new T.WebGLRenderer({ antialias: true, alpha: true });
+    r.setPixelRatio(window.devicePixelRatio); r.setSize(s, s); el.appendChild(r.domElement);
+    const scene = new T.Scene(), cam = new T.PerspectiveCamera(35, 1, .1, 100); cam.position.z = 6;
+    const geo = new T.IcosahedronGeometry(1.5, 0);
+    const mesh = new T.Mesh(geo, new T.MeshStandardMaterial({ color: 0x8a1f1a, flatShading: true, roughness: .4, metalness: .2 }));
+    mesh.add(new T.LineSegments(new T.EdgesGeometry(geo), new T.LineBasicMaterial({ color: 0xe0a94a })));
+    scene.add(mesh, new T.AmbientLight(0xffffff, .5));
+    const l = new T.DirectionalLight(0xffe2b0, 1.2); l.position.set(3, 4, 5); scene.add(l);
+    this.mesh = mesh; this.spin = { x: .004, y: .006 };
+    const loop = () => {
+      mesh.rotation.x += this.spin.x; mesh.rotation.y += this.spin.y;
+      this.spin.x = Math.max(.004, this.spin.x * .97); this.spin.y = Math.max(.006, this.spin.y * .97);
+      r.render(scene, cam); this.raf = requestAnimationFrame(loop);
+    };
+    loop();
+  }
+  roll = () => {
+    if (this.state.rolling) return;
+    this.spin = { x: .35 + Math.random() * .2, y: .4 + Math.random() * .2 };
+    this.setState({ rolling: true, result: '…' });
+    let n = 0; const iv = setInterval(() => {
+      this.setState({ result: 1 + Math.floor(Math.random() * 20) });
+      if (++n > 14) { clearInterval(iv); this.setState({ rolling: false }); }
+    }, 70);
+  };
+  renderVals() {
+    const done = 7;
+    const labels = ['PATH e IntelliJ','Primeiro programa','Variáveis e tipos','Scanner','if / else','switch','while, for, Random','Chefe: Kraken','Métodos'];
+    const days = Array.from({ length: 31 }, (_, i) => ({
+      n: i, label: labels[i] || '—',
+      href: i <= 7 ? '#d' + i : '#placar',
+      color: i <= done ? '#e9dfc8' : '#6a604e',
+      dot: i <= done ? '#7fc89a' : i <= 8 ? '#e0a94a' : '#3a3226'
+    }));
+    days.splice(8, 0, { n: 'MN', label: 'Maré Negra', href: '#mare', color: '#6fb3b0', dot: '#6fb3b0' });
+    const v = this.state.result;
+    const fin = typeof v === 'number' && !this.state.rolling;
+    return {
+      tavernRef: this.tavernRef, diceRef: this.diceRef, roll: this.roll, days, result: v,
+      resultColor: fin && v === 20 ? '#e0a94a' : fin && v === 1 ? '#e06a52' : '#f1e6cc',
+      verdict: !fin ? 'clique no dado' : v === 20 ? 'CRÍTICO! O Kraken treme.' : v === 1 ? 'Falha crítica. Bug no rum.' : v >= 11 ? 'Sucesso, marujo.' : 'Falhou. Role de novo.',
+      score: [
+        { d: '0', t: 'PATH e IntelliJ', st: 'feito', c: '#7fc89a' },
+        { d: '1', t: 'Primeiro programa', st: 'feito', c: '#7fc89a' },
+        { d: '2', t: 'Variáveis e tipos · Fantasma do -34', st: 'feito', c: '#7fc89a' },
+        { d: '3', t: 'Scanner', st: 'feito', c: '#7fc89a' },
+        { d: '4', t: 'if/else · Sombra da Recuperação', st: 'feito', c: '#7fc89a' },
+        { d: '5', t: 'switch', st: 'feito', c: '#7fc89a' },
+        { d: 'MN', t: 'Maré Negra v0.1', st: 'em construção', c: '#e0a94a' },
+        { d: '6', t: 'while, for e Random · Loop Infinito', st: 'feito', c: '#7fc89a' },
+        { d: '6', t: 'Taverna em loop e d6 do mar', st: 'feito', c: '#7fc89a' },
+        { d: '7', t: 'Prova do Kraken', st: '7,5 / 8', c: '#7fc89a' },
+        { d: '7', t: 'Batalha contra o Kraken', st: 'vitória', c: '#e0a94a' },
+        { d: '8', t: 'Métodos', st: 'próximo', c: '#9a8d74' },
+        { d: '+', t: 'Desafio do iPhone', st: 'em aberto', c: '#e0a94a' }
+      ]
+    };
+  }
+}
+</script>
+<!-- Maré Negra: pergaminho gigante no fundo do diário -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="mn-torn" x="-5%" y="-2%" width="110%" height="104%">
+    <feTurbulence type="fractalNoise" baseFrequency=".035 .02" numOctaves="4" seed="7" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="26" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="mn-grain"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="3"/><feColorMatrix values="0 0 0 0 .35  0 0 0 0 .22  0 0 0 0 .1  0 0 0 .55 0"/></filter>
+</svg>
+<style>
+body{background:radial-gradient(ellipse at 60% 0%,#1d2a2c,#0b0f10 60%,#070908)!important}
+main{position:relative;isolation:isolate;color:#3a2614}
+main::before{content:"";position:absolute;inset:40px -14px 40px;z-index:-2;filter:url(#mn-torn) drop-shadow(0 18px 30px rgba(0,0,0,.6));
+  background:
+    radial-gradient(ellipse at 50% 50%,transparent 55%,rgba(90,45,10,.35) 85%,rgba(40,18,4,.85) 100%),
+    radial-gradient(circle at 20% 15%,rgba(140,90,30,.18),transparent 25%),
+    radial-gradient(circle at 80% 40%,rgba(140,90,30,.15),transparent 22%),
+    radial-gradient(circle at 30% 75%,rgba(140,90,30,.14),transparent 28%),
+    radial-gradient(circle at 75% 90%,rgba(110,60,20,.2),transparent 20%),
+    linear-gradient(180deg,#e9d5a8,#e2c999 30%,#ead8ae 60%,#dcc08b);
+  box-shadow:inset 0 0 60px 18px rgba(70,35,8,.75),inset 0 0 160px rgba(120,70,20,.35)}
+main::after{content:"";position:absolute;inset:40px -14px 40px;z-index:-1;pointer-events:none;opacity:.5;mix-blend-mode:multiply;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .4 0 0 0 0 .25 0 0 0 0 .1 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E");
+  -webkit-mask:linear-gradient(#000,#000);filter:url(#mn-torn)}
+main [data-ink="2a1a0c"]{color:#2a1a0c!important}
+main [data-ink="3a2614"]{color:#3a2614!important}
+main [data-ink="4a3420"]{color:#4a3420!important}
+main [data-ink="7a5530"]{color:#7a5530!important}
+main [data-ink="8f4f0c"]{color:#8f4f0c!important}
+main [data-ink="2d6a43"]{color:#2d6a43!important}
+main [data-ink="9c2c18"]{color:#9c2c18!important}
+main [data-ink="7a4a14"]{color:#7a4a14!important}
+main [data-inkb]{border-color:rgba(90,55,20,.35)!important}
+main [data-inkq]{background:rgba(120,75,25,.13)!important;border-left:3px solid rgba(140,80,20,.5)}
+/* placas escuras viram "ilustrações coladas" no pergaminho */
+main details,main pre,main [style*="background:#1d1110"]{box-shadow:0 6px 16px rgba(50,25,5,.45);border-radius:3px}
+main #mare{margin-left:0!important;margin-right:0!important;border-radius:4px;box-shadow:0 10px 30px rgba(40,20,5,.55)}
+main > header{padding-top:130px!important}
+main #mare,main details,main pre[style*="0e0c09"],main [style*="background:#1d1110"]{color:#e9dfc8}
+</style>
+<!-- Maré Negra: transição de entrada e volta ao mapa -->
+<style>
+#mn-curtain{position:fixed;inset:0;z-index:99999;background:radial-gradient(circle at 50% 45%,#2a2117,#0c0a08 70%);display:grid;place-items:center;color:#e9dfc8;font-family:'IM Fell English',Georgia,serif;transition:clip-path 1s cubic-bezier(.7,0,.3,1);clip-path:circle(150% at 50% 50%)}
+#mn-curtain.open{clip-path:circle(0% at 50% 50%)}
+#mn-curtain .ic{color:#e0a94a;display:flex;justify-content:center;animation:mnspin 2.2s linear infinite;line-height:1;text-align:center}
+#mn-curtain .tx{font-size:28px;margin-top:16px;text-align:center}
+#mn-curtain .bar{width:220px;height:3px;background:#2a241b;margin:18px auto 0;overflow:hidden}
+#mn-curtain .bar i{display:block;height:100%;width:0;background:#e0a94a;animation:mnbar 1.2s ease-in-out forwards}
+@keyframes mnspin{to{transform:rotate(360deg)}}
+@keyframes mnbar{to{width:100%}}
+#mn-back{position:fixed;right:22px;bottom:22px;z-index:9998;display:flex;align-items:center;gap:8px;padding:10px 18px;border:1px solid #e0a94a;border-radius:999px;background:rgba(16,13,10,.85);color:#e0a94a;font:600 14px 'JetBrains Mono',monospace;cursor:pointer;box-shadow:0 6px 24px rgba(0,0,0,.5);transform:translateY(90px);opacity:0;transition:transform .7s cubic-bezier(.22,1,.36,1),opacity .7s,background .25s,color .25s}
+#mn-back.in{transform:none;opacity:1}
+#mn-back:hover{background:#e0a94a;color:#100d0a}
+#mn-back span{display:inline-block;transition:transform .3s}
+#mn-back:hover span{transform:translateX(-4px) rotate(-20deg)}
+</style>
+<div id="mn-curtain"><div><div class="ic"><svg width="76" height="76" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><path d="M12 7.5V22M8 11h8"/><path d="M4 14a8 8 0 0 0 16 0"/><path d="M2 15l2-2 2 2M18 15l2-2 2 2"/></svg></div><div class="tx">Chegando ao Diário de Bordo…</div><div class="bar"><i></i></div></div></div>
+<button id="mn-back" type="button"><span style="display:inline-flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><path d="M12 7.5V22M8 11h8"/><path d="M4 14a8 8 0 0 0 16 0"/><path d="M2 15l2-2 2 2M18 15l2-2 2 2"/></svg></span> Voltar ao mapa da Maré</button>
+<script>
+(function(){
+  var c=document.getElementById('mn-curtain'),b=document.getElementById('mn-back');
+  setTimeout(function(){c.classList.add('open');b.classList.add('in');},1100);
+  setTimeout(function(){c.style.pointerEvents='none';},2100);
+  b.onclick=function(){
+    c.querySelector('.tx').textContent='Voltando ao mapa da Maré…';
+    var i=c.querySelector('.bar i');i.style.animation='none';void i.offsetWidth;i.style.animation='';
+    c.style.pointerEvents='auto';c.classList.remove('open');
+    setTimeout(function(){location.href='/?skip';},1500);
+  };
+  addEventListener('pageshow',function(e){if(e.persisted){c.classList.add('open');c.style.pointerEvents='none';}});
+})();
+</script>
+</body>
+</html>

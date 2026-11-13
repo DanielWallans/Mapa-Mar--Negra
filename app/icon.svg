@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="60%"><stop offset="0" stop-color="#16323a"/><stop offset="1" stop-color="#070b0e"/></radialGradient>
+    <linearGradient id="au" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6d58a"/><stop offset="1" stop-color="#c48a2c"/></linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="31" fill="url(#bg)"/>
+  <circle cx="32" cy="32" r="28.5" fill="none" stroke="url(#au)" stroke-width="1.6"/>
+  <circle cx="32" cy="32" r="25" fill="none" stroke="#e0a94a" stroke-opacity=".35" stroke-width=".8" stroke-dasharray="1.5 2.2"/>
+  <!-- rosa dos ventos -->
+  <path d="M32 7 L36 28 L32 32 L28 28 Z" fill="url(#au)"/>
+  <path d="M32 57 L28 36 L32 32 L36 36 Z" fill="#8a5d1c"/>
+  <path d="M7 32 L28 28 L32 32 L28 36 Z" fill="#8a5d1c"/>
+  <path d="M57 32 L36 36 L32 32 L36 28 Z" fill="url(#au)"/>
+  <path d="M32 32 L46 18 L37 30 Z M32 32 L18 46 L27 34 Z" fill="#e0a94a" opacity=".55"/>
+  <path d="M32 32 L18 18 L30 27 Z M32 32 L46 46 L34 37 Z" fill="#e0a94a" opacity=".3"/>
+  <!-- onda negra -->
+  <path d="M12 41 q5 -5 10 0 t10 0 t10 0 t10 0 v8 q-10 9 -20 9 t-20 -9 z" fill="#071014" opacity=".92"/>
+  <path d="M12 41 q5 -5 10 0 t10 0 t10 0 t10 0" fill="none" stroke="#7fe6d3" stroke-width="1.8" stroke-linecap="round"/>
+  <circle cx="32" cy="32" r="2.6" fill="#f6d58a" stroke="#070b0e" stroke-width="1"/>
+</svg>
