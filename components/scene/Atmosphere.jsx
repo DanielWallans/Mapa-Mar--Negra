@@ -50,7 +50,7 @@ export function IslandLabels({ visible }) {
   return LABELS.map(([n, nome, x, y], i) => {
     const wx = W(x), wz = Z(y);
     return (
-      <Html key={n} position={[wx, Math.max(1, heightAt(wx, wz)) + (i === 3 ? 4 : 5), wz]} center zIndexRange={[5, 0]} style={{ pointerEvents: "none" }}>
+      <Html key={n} position={[wx, Math.max(1, heightAt(wx, wz)) + 9, wz]} center zIndexRange={[5, 0]} style={{ pointerEvents: "none" }}>
         <div className={`label ${visible ? "on" : ""}`} style={{ transitionDelay: `${i * .25}s` }}>
           <small>Ilha {n}</small><span>{nome}</span>
         </div>

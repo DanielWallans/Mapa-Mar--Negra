@@ -50,7 +50,7 @@ button { font: inherit; color: inherit; }
 .progress b { display: block; font-family: var(--display); font-weight: 400; font-size: 30px; color: var(--gold); line-height: 1; letter-spacing: 0; }
 .ring { width: 56px; height: 56px; transform: rotate(-90deg); }
 .ring-bg { fill: none; stroke: rgba(236,220,182,.12); stroke-width: 3; }
-.ring-fg { fill: none; stroke: var(--gold); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 169.6; stroke-dashoffset: 169.6; filter: drop-shadow(0 0 6px rgba(232,184,90,.7)); }
+.ring-fg { fill: none; stroke: var(--gold); stroke-width: 3; stroke-linecap: round; filter: drop-shadow(0 0 6px rgba(232,184,90,.7)); }
 
 .hud-bottom { position: fixed; z-index: 10; left: 0; right: 0; bottom: 0; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none;
   padding: 0 max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left)); }
@@ -164,7 +164,7 @@ button { font: inherit; color: inherit; }
 /* ===== React / R3F ===== */
 .scene { position: fixed !important; inset: 0; width: 100vw !important; height: 100vh !important; }
 .label { opacity: 0; transform: translateY(10px); transition: opacity 1s ease, transform 1s cubic-bezier(.22,1,.36,1); position: static; }
-.label.on { opacity: 1; transform: none; }
+.label.on { opacity: .8; transform: none; }
 .hint { transition: opacity 1s ease; }
 .hint.on { opacity: .85; }
 .isle-btn { position: relative; isolation: isolate; }
