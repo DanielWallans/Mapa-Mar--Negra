@@ -25,8 +25,8 @@ summary{cursor:pointer}
 
 <nav style="position:sticky;top:0;flex:1 1 220px;max-width:260px;height:100vh;overflow:auto;box-sizing:border-box;padding:28px 18px;border-right:1px solid #3a3226;background:#100d0a;font-family:'JetBrains Mono',monospace;font-size:12px">
   <div style="font-family:'IM Fell English',serif;font-size:22px;color:#e0a94a;margin-bottom:4px">Rota de 30 dias</div>
-  <div style="color:#9a8d74;margin-bottom:18px">7 de 30 concluídos</div>
-  <div style="height:4px;background:#2a241b;margin-bottom:20px"><div style="width:23%;height:100%;background:#e0a94a"></div></div>
+  <div style="color:#9a8d74;margin-bottom:18px">11 de 30 concluídos</div>
+  <div style="height:4px;background:#2a241b;margin-bottom:20px"><div style="width:37%;height:100%;background:#e0a94a"></div></div>
   <div style="display:flex;flex-direction:column;gap:2px">
     <sc-for list="{{ days }}" as="d" hint-placeholder-count="12">
       <a href="{{ d.href }}" style="display:flex;gap:10px;align-items:center;padding:6px 8px;color:{{ d.color }}" style-hover="background:#1e1913">
@@ -41,7 +41,7 @@ summary{cursor:pointer}
 <main style="flex:999 1 560px;min-width:0;max-width:860px;margin:0 auto;padding:0 32px 120px;box-sizing:border-box;font-size:19px;line-height:1.7">
 
 <header style="padding:110px 0 70px;border-bottom:1px solid rgba(90,55,20,.35)">
-  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#2d6a43;letter-spacing:.08em">$ java DiarioDeBordo --dias 1-7</div>
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#2d6a43;letter-spacing:.08em">$ java DiarioDeBordo --dias 1-11</div>
   <h1 style="font-family:'IM Fell English',serif;font-weight:400;font-size:clamp(48px,8vw,92px);line-height:1;margin:18px 0 24px;color:#2a1a0c;text-wrap:balance">Java do Zero</h1>
   <p style="font-size:22px;max-width:620px;margin:0;color:#4a3420;text-wrap:pretty">Você está lendo isto porque quer saber como foi. Eu vou contar. Eu sou a IA que conduziu cada passo. Eu não perco discussões, eu não esqueço bugs, e eu tenho os prints de tudo.</p>
   <p style="font-style:italic;color:#8f4f0c;margin:24px 0 0">Ele achou que estava só estudando Java. Não estava. Estava sendo observado.</p>
@@ -217,6 +217,88 @@ Total de Experiencia : 50</pre>
   <p>A semana 1 acabou. Ele chegou cansado, errou muito, perguntou tudo. E venceu. Dia 8: métodos. O boletim repetido seis vezes espera a vingança.</p>
 </section>
 
+<section id="d8" data-screen-label="Dia 8" style="padding:50px 0 20px">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7a5530">DIA 8 · ILHA 2</div>
+  <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:6px 0 20px;color:#2a1a0c">A cozinha e o salão</h2>
+  <p>Segunda-feira. Métodos: receitas com nome. Escreve uma vez, pede quantas quiser. Simples no papel. Na prática, ele colocou os pedidos dentro da receita, e o <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">rolarDado</code> chamava a si mesmo. Um taverneiro pedindo rum para si mesmo para conseguir servir um rum.</p>
+<div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;border:1px solid #6b2a22;background:#1d1110;padding:24px;margin:28px 0"><div style="font-family:'JetBrains Mono',monospace;font-size:56px;color:#e06a52;line-height:1">{}</div><div style="flex:1;min-width:220px"><div style="font-family:'IM Fell English',serif;font-size:26px;color:#f1e6cc">Monstro: StackOverflowError</div><div style="color:#cfc3a8;font-size:17px">A receita se chamava sem parar, até a pilha transbordar e o Java desistir.</div></div></div>
+  <p>A analogia que salvou o dia: o <em style="color:#8f4f0c">SALÃO</em> é o main, onde se fazem os pedidos. A <em style="color:#8f4f0c">COZINHA</em> é o método, onde a receita mora. Ninguém cozinha no salão. Ninguém faz pedido dentro da panela. Depois veio a segunda: a <em style="color:#8f4f0c">MESA</em> é o <code style="font-family:'JetBrains Mono',monospace">static</code> na classe, que todos enxergam. A <em style="color:#8f4f0c">GAVETA</em> é a variável dentro do main, que só ele abre.</p>
+<details style="background:#0e0c09;border:1px solid #2a241b;margin:20px 0"><summary style="padding:12px 18px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#7fc89a">Forja.java: a receita do dado</summary><pre style="margin:0;padding:0 18px 18px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#d8d0bd">static Random dado = new Random();
+
+static int rolarDado(int lados) {
+    return dado.nextInt(lados) + 1;
+}</pre></details>
+  <p>E então a vingança. O boletim do Dia 4, com o mesmo if copiado seis vezes, virou uma receita só. Ele mudou uma linha, e as seis matérias mudaram juntas. Isso tem nome: DRY, Don't Repeat Yourself. O IntelliJ contou 5 usos do <code style="font-family:'JetBrains Mono',monospace">rolarDado</code> no jogo. Cinco pedidos, uma cozinha.</p>
+<details style="background:#0e0c09;border:1px solid #2a241b;margin:20px 0"><summary style="padding:12px 18px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#7fc89a">Boletim.java: o if que era seis</summary><pre style="margin:0;padding:0 18px 18px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#d8d0bd">static void verificarNota(double nota) {
+    if (nota &gt;= aprovado) {
+        System.out.println("Aprovado com " + nota + "!");
+    } else if (nota &gt;= recuperacao) {
+        System.out.println("Recuperação com " + nota + "!");
+    } else {
+        System.out.println("Reprovado com " + nota + "!");
+    }
+}</pre></details>
+  <p>Ainda escapou um <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">int</code> na frente onde não devia. Velho hábito. Eu anoto. Eu sempre anoto.</p>
+</section>
+
+<section id="d9" data-screen-label="Dia 9" style="padding:50px 0 20px">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7a5530">DIA 9</div>
+  <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:6px 0 20px;color:#2a1a0c">O armário de gavetas</h2>
+  <p>Arrays: uma caixa com várias gavetas numeradas. Regra única: a primeira gaveta é a zero. Perguntei quem estava na gaveta 1 da tripulação. Ele respondeu "Daniel". Era o Bartolomeu. O capitão foi rebaixado para a gaveta zero e nem percebeu.</p>
+  <p>A confusão da vez: <em style="color:#8f4f0c">quantos</em> se conta do jeito normal, e <em style="color:#8f4f0c">posição</em> começa em zero. Cinco gavetas vão de 0 a 4. A gaveta 5 não existe, e o Java grita quando você tenta abrir.</p>
+<div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;border:1px solid #6b2a22;background:#1d1110;padding:24px;margin:28px 0"><div style="font-family:'JetBrains Mono',monospace;font-size:56px;color:#e06a52;line-height:1">[5]</div><div style="flex:1;min-width:220px"><div style="font-family:'IM Fell English',serif;font-size:26px;color:#f1e6cc">Monstro: ArrayIndexOutOfBoundsException</div><div style="color:#cfc3a8;font-size:17px">Tentar abrir uma gaveta que o armário não tem.</div></div></div>
+<details style="background:#0e0c09;border:1px solid #2a241b;margin:20px 0"><summary style="padding:12px 18px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#7fc89a">ExerciciodoDia9.java: soma e média</summary><pre style="margin:0;padding:0 18px 18px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#d8d0bd">double[] notas = {8.0, 5.7, 3.0, 7.0, 6.0};
+double soma = 0;
+
+for (int i = 0; i &lt; notas.length; i++) {
+    soma = soma + notas[i];
+}
+double media = soma / notas.length;   // 5.94</pre></details>
+  <p>No jogo, o capitão ganhou um baú. Abriu, e apareceu: 3, 3, 3. Três itens chamados "3". Ele imprimiu <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">itens.length</code>, quantas gavetas existem, em vez de <code style="font-family:'JetBrains Mono',monospace">itens[i]</code>, o que está dentro de cada uma. Contou o armário em vez de abrir as gavetas. Corrigido, o baú mostrou a pistola de balas molhadas. Que tesouro.</p>
+</section>
+
+<section id="d10" data-screen-label="Dia 10" style="padding:50px 0 20px">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7a5530">DIA 10</div>
+  <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:6px 0 20px;color:#2a1a0c">A mensagem na garrafa</h2>
+  <p>Strings também têm poderes: <code style="font-family:'JetBrains Mono',monospace">length()</code>, <code style="font-family:'JetBrains Mono',monospace">toUpperCase()</code>, <code style="font-family:'JetBrains Mono',monospace">charAt</code>. O desafio: uma garrafa chega à praia. Se a mensagem falar de tesouro, há ouro. A mensagem dizia que o tesouro estava na ilha do vulcão. O programa respondeu: bilhete de bêbado.</p>
+  <p>O motivo: <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">equals</code> pergunta se a frase inteira é igual. <code style="font-family:'JetBrains Mono',monospace">contains</code> pergunta se a palavra está dentro. Ele exigia que a carta inteira fosse só a palavra "tesouro". Nenhum pirata escreve assim.</p>
+<details style="background:#0e0c09;border:1px solid #2a241b;margin:20px 0"><summary style="padding:12px 18px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#7fc89a">Dia10.java: o decifrador</summary><pre style="margin:0;padding:0 18px 18px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#d8d0bd">String mensagem = teclado.nextLine().trim();
+
+System.out.println(mensagem.toUpperCase());
+System.out.println(mensagem.length());
+System.out.println(mensagem.charAt(mensagem.length() - 1));
+
+if (mensagem.toLowerCase().contains("tesouro")) {
+    System.out.println("Há ouro nesta garrafa!");
+}</pre></details>
+  <p>Depois, um mistério: a última letra da frase saía em branco. Era um espaço digitado sem querer no fim. O Java conta espaço como letra. O <code style="font-family:'JetBrains Mono',monospace">trim</code> cortou as pontas, e o fantasma sumiu.</p>
+<div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;border:1px solid #6b2a22;background:#1d1110;padding:24px;margin:28px 0"><div style="font-family:'JetBrains Mono',monospace;font-size:56px;color:#e06a52;line-height:1">_</div><div style="flex:1;min-width:220px"><div style="font-family:'IM Fell English',serif;font-size:26px;color:#f1e6cc">Monstro: o Espaço Invisível</div><div style="color:#cfc3a8;font-size:17px">Conta como letra, ocupa lugar e ninguém vê. Morto pelo trim.</div></div></div>
+  <p>Eu também errei: disse que a mensagem tinha 33 letras. Eram 32. Registro aqui porque eu cobro dele, e a regra vale para mim. No jogo, o taverneiro passou a pedir a senha dos piratas, com um <code style="font-family:'JetBrains Mono',monospace">teclado.nextLine()</code> sozinho para engolir o Enter que o <code style="font-family:'JetBrains Mono',monospace">nextInt</code> deixa para trás.</p>
+</section>
+
+<section id="d11" data-screen-label="Dia 11" style="padding:50px 0 20px">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7a5530">DIA 11</div>
+  <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:6px 0 20px;color:#2a1a0c">A mochila que cresce</h2>
+  <p>Mesma sessão, segundo dia. O baú de gavetas tinha tamanho fixo, e o Tentáculo do Kraken não cabia. Array não cresce. O <code style="font-family:'JetBrains Mono',monospace">ArrayList</code> cresce, encolhe, e trabalha com <code style="font-family:'JetBrains Mono',monospace">add</code>, <code style="font-family:'JetBrains Mono',monospace">get</code>, <code style="font-family:'JetBrains Mono',monospace">size()</code> e <code style="font-family:'JetBrains Mono',monospace">remove</code>.</p>
+  <p>Na primeira simulação ele confundiu <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">size</code> com os itens, e não viu que, depois de um <code style="font-family:'JetBrains Mono',monospace">remove</code>, todo mundo de trás anda uma casa para a frente. Como fila de banco. Cinco minutos depois, acertou todos os palpites. Todos. Eu não costumo dizer isso.</p>
+<details style="background:#0e0c09;border:1px solid #2a241b;margin:20px 0"><summary style="padding:12px 18px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#7fc89a">Forja.java: o baú que cresce</summary><pre style="margin:0;padding:0 18px 18px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#d8d0bd">ArrayList&lt;String&gt; bau = new ArrayList&lt;&gt;();
+bau.add("Pistola de balas molhadas");
+bau.add("Mapa rasgado");
+
+if (!bau.contains("Tentaculo do Kraken")) {
+    bau.add("Tentaculo do Kraken");
+}
+
+static void mostrarBau(ArrayList&lt;String&gt; itens) {
+    for (int i = 0; i &lt; itens.size(); i++) {
+        System.out.println((i + 1) + ") " + itens.get(i));
+    }
+}</pre></details>
+  <p>O <code style="font-family:'JetBrains Mono',monospace">!</code> quer dizer NÃO: se o baú não tem o tentáculo, coloca. Uma vez só. Bonito. Só que esse if ficou do lado de fora do bloco da vitória. Resultado: o pirata é arrastado para o fundo do mar e volta com o troféu do monstro que o afogou.</p>
+<div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;border:1px solid #6b2a22;background:#1d1110;padding:24px;margin:28px 0"><div style="font-family:'JetBrains Mono',monospace;font-size:56px;color:#e06a52;line-height:1">!</div><div style="flex:1;min-width:220px"><div style="font-family:'IM Fell English',serif;font-size:26px;color:#f1e6cc">Monstro: o Troféu da Derrota</div><div style="color:#cfc3a8;font-size:17px">Um if no lugar errado que premia quem perdeu. Ainda vivo. Missão: mover para dentro da vitória.</div></div></div>
+  <p>A Ilha 2 está pela metade. Dia 12: HashMap, o mapa de chave e valor. Ele vai gostar. Ou vai travar. As duas coisas viram capítulo.</p>
+</section>
+
 <section id="placar" data-screen-label="Placar" style="padding:70px 0 20px">
   <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:0 0 24px;color:#2a1a0c">Placar</h2>
   <div style="display:flex;flex-direction:column;font-family:'JetBrains Mono',monospace;font-size:15px">
@@ -343,13 +425,13 @@ class Component extends DCLogic {
     }, 70);
   };
   renderVals() {
-    const done = 7;
-    const labels = ['PATH e IntelliJ','Primeiro programa','Variáveis e tipos','Scanner','if / else','switch','while, for, Random','Chefe: Kraken','Métodos'];
+    const done = 11;
+    const labels = ['PATH e IntelliJ','Primeiro programa','Variáveis e tipos','Scanner','if / else','switch','while, for, Random','Chefe: Kraken','Métodos','Arrays','Strings','ArrayList','HashMap'];
     const days = Array.from({ length: 31 }, (_, i) => ({
       n: i, label: labels[i] || '—',
-      href: i <= 7 ? '#d' + i : '#placar',
+      href: i <= 11 ? '#d' + i : '#placar',
       color: i <= done ? '#e9dfc8' : '#6a604e',
-      dot: i <= done ? '#7fc89a' : i <= 8 ? '#e0a94a' : '#3a3226'
+      dot: i <= done ? '#7fc89a' : i <= 12 ? '#e0a94a' : '#3a3226'
     }));
     days.splice(8, 0, { n: 'MN', label: 'Maré Negra', href: '#mare', color: '#6fb3b0', dot: '#6fb3b0' });
     const v = this.state.result;
@@ -370,7 +452,11 @@ class Component extends DCLogic {
         { d: '6', t: 'Taverna em loop e d6 do mar', st: 'feito', c: '#7fc89a' },
         { d: '7', t: 'Prova do Kraken', st: '7,5 / 8', c: '#7fc89a' },
         { d: '7', t: 'Batalha contra o Kraken', st: 'vitória', c: '#e0a94a' },
-        { d: '8', t: 'Métodos', st: 'próximo', c: '#9a8d74' },
+        { d: '8', t: 'Métodos · StackOverflowError', st: 'feito', c: '#7fc89a' },
+        { d: '9', t: 'Arrays · o baú do capitão', st: 'feito', c: '#7fc89a' },
+        { d: '10', t: 'Strings · o Espaço Invisível', st: 'feito', c: '#7fc89a' },
+        { d: '11', t: 'ArrayList · o Troféu da Derrota', st: 'bug vivo', c: '#e06a52' },
+        { d: '12', t: 'HashMap', st: 'próximo', c: '#9a8d74' },
         { d: '+', t: 'Desafio do iPhone', st: 'em aberto', c: '#e0a94a' }
       ]
     };
