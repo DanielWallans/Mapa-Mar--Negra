@@ -54,7 +54,7 @@ Oceano vivo com ondas que **rolam até as ilhas e quebram na praia**, tubarões 
 
 ## O mapa em 2D — a carta original
 
-Antes de virar 3D, a Maré Negra nasceu como uma carta náutica desenhada à mão em HTML/SVG. Ela continua a bordo em [`_legacy-html/mapa-2d-original.html`](_legacy-html/mapa-2d-original.html).
+Antes de virar 3D, a Maré Negra nasceu como uma carta náutica desenhada à mão em HTML/SVG. Ela continua a bordo em [`docs/mapa-2d.html`](docs/mapa-2d.html).
 
 ![Mapa 2D](docs/img/mapa-2d.png)
 
@@ -174,8 +174,7 @@ mapamarenegra/
 │  └─ ui/               Intro, Hud, Scroll (pergaminho), DiceRoller, Icons
 ├─ lib/                 dados do diário, mundo 3D, texturas procedurais
 ├─ public/diario/       Diário de Bordo Java
-├─ _legacy-html/        as versões HTML originais (2D)
-└─ docs/img/            imagens deste README
+└─ docs/                mapa 2D original e imagens deste README
 ```
 
 ---

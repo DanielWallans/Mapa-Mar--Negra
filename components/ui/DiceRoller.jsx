@@ -111,8 +111,6 @@ const Die = forwardRef(function Die({ lados, x, onResult }, ref) {
       const squash = 1 - Math.max(0, .12 - bounce) * .8;
       g.scale.set(1 / squash, squash, 1 / squash);
       if (p >= 1) { s.rolling = false; g.position.y = 0; g.scale.setScalar(1); s.flash = 1; onResult(lados, s.value); }
-    } else {
-      g.rotation.y += 0; // parado
     }
     s.flash = Math.max(0, s.flash - dt * 1.5);
     glow.current.material.opacity = s.flash * .9;

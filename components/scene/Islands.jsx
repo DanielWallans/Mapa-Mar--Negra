@@ -1,6 +1,5 @@
 "use client";
 import { useLayoutEffect, useMemo, useRef } from "react";
-import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { ISLES, VOLCANO, isleHeight, heightAt, fbm, hash, W, Z } from "@/lib/world";
 import { POS } from "@/lib/data";
@@ -45,19 +44,9 @@ function Island({ s }) {
     });
     return { geo, mat };
   }, [s]);
-  const foam = useRef();
-  useFrame(({ clock }) => {
-    const t = clock.elapsedTime, k = 1 + Math.sin(t * .9 + s.ph) * .025;
-    foam.current.scale.set(s.ax * k, s.az * k, 1);
-    foam.current.material.opacity = .09 + Math.sin(t * 1.4 + s.ph) * .05;
-  });
   return (
     <group>
       <mesh geometry={geo} material={mat} position={[s.x, 0, s.z]} castShadow receiveShadow />
-      <mesh ref={foam} visible={false} rotation-x={-Math.PI / 2} position={[s.x, .4, s.z]}>
-        <ringGeometry args={[.98, 1.04, 96]} />
-        <meshBasicMaterial color="#9ffbe8" transparent depthWrite={false} blending={THREE.AdditiveBlending} toneMapped={false} />
-      </mesh>
     </group>
   );
 }
