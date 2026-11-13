@@ -53,6 +53,23 @@ export default function About({ open, onClose }) {
                   ponto numa carta náutica, e o estudo virou uma viagem de navio entre ilhas.
                 </motion.p>
                 <motion.p variants={item} className="quote">Ninguém nasce sabendo navegar. Aprende-se uma onda de cada vez.</motion.p>
+                <motion.h3 variants={item}>E por que "Maré Negra"?</motion.h3>
+                <motion.p variants={item}>
+                  Porque estudar Java só com exercício de calculadora seria sensato demais. O aprendiz olhou para o próprio{" "}
+                  <code>if/else</code> recém-nascido e concluiu, com toda a humildade do mundo, que estava pronto para escrever o
+                  <b> backend de um RPG de mesa de piratas</b>. Taverna, rolagem de dados, corsários da realeza, ilhas, chefes. Tudo em Java.
+                  Com uma semana de experiência.
+                </motion.p>
+                <motion.p variants={item}>
+                  O plano é genial na sua simplicidade: cada conceito novo vira uma peça do jogo. Aprendeu <code>Random</code>? Virou
+                  dado. Aprendeu <code>while</code>? Virou a taverna da qual ninguém sai até decidir zarpar (e às vezes nem assim, quando
+                  o loop é infinito). Aprendeu classes? Logo os piratas vão ter construtor. Os que sobreviverem.
+                </motion.p>
+                <motion.p variants={item} className="quote">Ele chama isso de "aprender na prática". O compilador chama de outra coisa.</motion.p>
+                <motion.p variants={item}>
+                  Spoiler: está funcionando. Cada bug virou um monstro, cada monstro virou uma lição, e o jogo cresce no mesmo ritmo que
+                  o programador. Que é exatamente o objetivo, por mais que ninguém tenha pedido um RPG.
+                </motion.p>
                 <motion.h3 variants={item}>Como ler o diário</motion.h3>
                 <motion.ul variants={item} className="about-steps">
                   {PASSOS.map(([t, d]) => <li key={t}><b>{t}.</b> {d}</li>)}
