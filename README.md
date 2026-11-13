@@ -38,10 +38,10 @@ Cada dia de estudo é um **selo de cera** numa ilha. Cada ilha é um módulo. Ca
 
 | Ilha | Dias | Conteúdo | Chefe |
 |---|---|---|---|
-| **I · Porto das Variáveis** | 1–7 | variáveis, tipos, Scanner, if/else, switch, loops | Kraken |
-| **II · Fazenda dos Laços** | 8–14 | métodos, arrays, laços | — |
+| **I · Porto das Variáveis** | 1–7 | variáveis, tipos, Scanner, if/else, switch, loops | Kraken da Divisão Inteira |
+| **II · Fazenda dos Laços** | 8–14 | métodos, arrays, laços | Espantalho do Índice Zero |
 | **III · Reino dos Objetos** | 15–21 | classes, objetos, POO | Rei sem Construtor |
-| **IV · Castelo do Vulcão** | 22–30 | o desafio final | ??? |
+| **IV · Castelo do Vulcão** | 22–30 | o desafio final | Dragão NullPointer |
 
 ---
 
