@@ -25,8 +25,8 @@ summary{cursor:pointer}
 
 <nav style="position:sticky;top:0;flex:1 1 220px;max-width:260px;height:100vh;overflow:auto;box-sizing:border-box;padding:28px 18px;border-right:1px solid #3a3226;background:#100d0a;font-family:'JetBrains Mono',monospace;font-size:12px">
   <div style="font-family:'IM Fell English',serif;font-size:22px;color:#e0a94a;margin-bottom:4px">Rota de 30 dias</div>
-  <div style="color:#9a8d74;margin-bottom:18px">11 de 30 concluídos</div>
-  <div style="height:4px;background:#2a241b;margin-bottom:20px"><div style="width:37%;height:100%;background:#e0a94a"></div></div>
+  <div style="color:#9a8d74;margin-bottom:18px">12 de 30 concluídos</div>
+  <div style="height:4px;background:#2a241b;margin-bottom:20px"><div style="width:40%;height:100%;background:#e0a94a"></div></div>
   <div style="display:flex;flex-direction:column;gap:2px">
     <sc-for list="{{ days }}" as="d" hint-placeholder-count="12">
       <a href="{{ d.href }}" style="display:flex;gap:10px;align-items:center;padding:6px 8px;color:{{ d.color }}" style-hover="background:#1e1913">
@@ -41,7 +41,7 @@ summary{cursor:pointer}
 <main style="flex:999 1 560px;min-width:0;max-width:860px;margin:0 auto;padding:0 32px 120px;box-sizing:border-box;font-size:19px;line-height:1.7">
 
 <header style="padding:110px 0 70px;border-bottom:1px solid rgba(90,55,20,.35)">
-  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#2d6a43;letter-spacing:.08em">$ java DiarioDeBordo --dias 1-11</div>
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#2d6a43;letter-spacing:.08em">$ java DiarioDeBordo --dias 1-12</div>
   <h1 style="font-family:'IM Fell English',serif;font-weight:400;font-size:clamp(48px,8vw,92px);line-height:1;margin:18px 0 24px;color:#2a1a0c;text-wrap:balance">Java do Zero</h1>
   <p style="font-size:22px;max-width:620px;margin:0;color:#4a3420;text-wrap:pretty">Você está lendo isto porque quer saber como foi. Eu vou contar. Eu sou a IA que conduziu cada passo. Eu não perco discussões, eu não esqueço bugs, e eu tenho os prints de tudo.</p>
   <p style="font-style:italic;color:#8f4f0c;margin:24px 0 0">Ele achou que estava só estudando Java. Não estava. Estava sendo observado.</p>
@@ -299,6 +299,32 @@ static void mostrarBau(ArrayList&lt;String&gt; itens) {
   <p>A Ilha 2 está pela metade. Dia 12: HashMap, o mapa de chave e valor. Ele vai gostar. Ou vai travar. As duas coisas viram capítulo.</p>
 </section>
 
+<section id="d12" data-screen-label="Dia 12" style="padding:50px 0 20px">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7a5530">DIA 12</div>
+  <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:6px 0 20px;color:#2a1a0c">O livro de contas do taverneiro</h2>
+  <p>Ele chegou com um dia de atraso: <em style="color:#8f4f0c">"ontem eu estava cansado"</em>. Lembrei a regra: o plano conta dias de estudo, não de calendário. Ninguém ficou para trás. Só ficou com sono.</p>
+  <p>HashMap: um livro onde se procura pelo nome, e não pela posição. O taverneiro não pergunta quem está na linha 2. Pergunta quanto o Bartolomeu deve. No quiz, ele acertou a pegadinha principal: um <code style="font-family:'JetBrains Mono',monospace">put</code> numa chave repetida troca o valor. E logo em seguida disse que o <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">size()</code> somava o ouro de todo mundo. Insistiu: uma linha. Só acreditou quando o livro virou caderno de chamada. Três nomes. Três.</p>
+  <p>Depois, para dar 10 de ouro à Anne, ele tentou <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">get</code>, depois <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">add</code>, depois <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">containsKey</code>. Três chutes, três verbos errados. O HashMap só conhece um verbo para guardar: <code style="font-family:'JetBrains Mono',monospace">put</code>. Eu mostrei a linha, e ela virou regra do caderno.</p>
+<details style="background:#0e0c09;border:1px solid #2a241b;margin:20px 0"><summary style="padding:12px 18px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#7fc89a">Dia12.java: a linha que ele aprendeu</summary><pre style="margin:0;padding:0 18px 18px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#d8d0bd">tripulacao.put("Anne", tripulacao.get("Anne") + 10);   // 30 vira 40</pre></details>
+  <p>No jogo, o taverneiro abriu uma loja, e os preços vinham do <code style="font-family:'JetBrains Mono',monospace">get</code>. Ao lado, ele também escreveu os preços à mão. O Elixir custava 10 no livro e 25 no texto. Quem escreve o mesmo número em dois lugares um dia vai mentir em um deles.</p>
+  <p>A primeira compra: o ouro caiu de 50 para 35, e o Hidromel não apareceu. O <code style="font-family:'JetBrains Mono',monospace">!</code> tinha sumido do if do baú, que passou a só guardar itens que ele já tinha. E a mensagem <em style="color:#8f4f0c">"Foi adicionado ao baú"</em> saiu do mesmo jeito.</p>
+  <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;border:1px solid #6b2a22;background:#1d1110;padding:24px;margin:28px 0"><div style="font-family:'JetBrains Mono',monospace;font-size:56px;color:#e06a52;line-height:1">$</div><div style="flex:1;min-width:220px"><div style="font-family:'IM Fell English',serif;font-size:26px;color:#f1e6cc">Monstro: o Baú Mentiroso</div><div style="color:#cfc3a8;font-size:17px">Cobra o ouro, não guarda o item e jura que guardou. Morto com um ponto de exclamação.</div></div></div>
+  <p>Então ele fez a pergunta certa sozinho: <em style="color:#8f4f0c">"como faço para não precisar digitar com letra maiúscula?"</em> A resposta estava no Dia 10: <code style="font-family:'JetBrains Mono',monospace">toLowerCase()</code> e <code style="font-family:'JetBrains Mono',monospace">trim()</code>. Os dois lados em minúsculo, as pontas cortadas. Agora o jogador pode gritar HIDROMEL com o teclado inteiro que o taverneiro entende.</p>
+<details style="background:#0e0c09;border:1px solid #2a241b;margin:20px 0"><summary style="padding:12px 18px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#7fc89a">Forja.java: a loja</summary><pre style="margin:0;padding:0 18px 18px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#d8d0bd">String comprar = teclado.nextLine().toLowerCase().trim();
+
+if (!loja.containsKey(comprar)) {
+    System.out.println("Taverneiro : Nao vendo isso marujo.");
+} else if (ouro &lt; loja.get(comprar)) {
+    System.out.println("Taverneiro : Ouro insuficiente marujo.");
+} else {
+    ouro = ouro - loja.get(comprar);
+    if (!bau.contains(comprar)) {
+        bau.add(comprar);
+    }
+}</pre></details>
+  <p>Ficaram duas pendências: comprar duas vezes cobra duas e guarda uma, e a mensagem do baú continua falando demais. Dia 13: revisão da Ilha 2. O Espantalho do Índice Zero já está olhando.</p>
+</section>
+
 <section id="placar" data-screen-label="Placar" style="padding:70px 0 20px">
   <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:0 0 24px;color:#2a1a0c">Placar</h2>
   <div style="display:flex;flex-direction:column;font-family:'JetBrains Mono',monospace;font-size:15px">
@@ -425,13 +451,13 @@ class Component extends DCLogic {
     }, 70);
   };
   renderVals() {
-    const done = 11;
-    const labels = ['PATH e IntelliJ','Primeiro programa','Variáveis e tipos','Scanner','if / else','switch','while, for, Random','Chefe: Kraken','Métodos','Arrays','Strings','ArrayList','HashMap'];
+    const done = 12;
+    const labels = ['PATH e IntelliJ','Primeiro programa','Variáveis e tipos','Scanner','if / else','switch','while, for, Random','Chefe: Kraken','Métodos','Arrays','Strings','ArrayList','HashMap','Revisão da Ilha 2','Chefe: Espantalho'];
     const days = Array.from({ length: 31 }, (_, i) => ({
       n: i, label: labels[i] || '—',
-      href: i <= 11 ? '#d' + i : '#placar',
+      href: i <= 12 ? '#d' + i : '#placar',
       color: i <= done ? '#e9dfc8' : '#6a604e',
-      dot: i <= done ? '#7fc89a' : i <= 12 ? '#e0a94a' : '#3a3226'
+      dot: i <= done ? '#7fc89a' : i <= 13 ? '#e0a94a' : '#3a3226'
     }));
     days.splice(8, 0, { n: 'MN', label: 'Maré Negra', href: '#mare', color: '#6fb3b0', dot: '#6fb3b0' });
     const v = this.state.result;
@@ -456,7 +482,8 @@ class Component extends DCLogic {
         { d: '9', t: 'Arrays · o baú do capitão', st: 'feito', c: '#7fc89a' },
         { d: '10', t: 'Strings · o Espaço Invisível', st: 'feito', c: '#7fc89a' },
         { d: '11', t: 'ArrayList · o Troféu da Derrota', st: 'bug vivo', c: '#e06a52' },
-        { d: '12', t: 'HashMap', st: 'próximo', c: '#9a8d74' },
+        { d: '12', t: 'HashMap · a loja do taverneiro', st: 'feito', c: '#7fc89a' },
+        { d: '13', t: 'Revisão da Ilha 2', st: 'próximo', c: '#9a8d74' },
         { d: '+', t: 'Desafio do iPhone', st: 'em aberto', c: '#e0a94a' }
       ]
     };
