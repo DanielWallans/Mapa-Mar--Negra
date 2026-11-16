@@ -365,6 +365,38 @@ System.out.println(" Peso Total : " + pesoTotal(pesos) + " kg");   // 40</pre></
  Você corta a pala! Vida espantalho: -1
  Narrador : O Espantalho desaba num monte de palha. Vitoria!</pre>
   <p>A palha foi para o baú, dentro do bloco da vitória. Ele aprendeu com o Troféu da Derrota. Mas deixou três presentes para o futuro: um dano de d20 que transforma a espada em canhão, um Espantalho que só ataca quem tem menos vida que ele, e um espaço no fim de <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">"Palha do espantalho "</code> que faz cada vitória colocar outra palha no baú. O Espaço Invisível é o monstro mais teimoso desta viagem.</p>
+  <div id="d14-lenda"></div>
+  <h3 style="font-family:'IM Fell English',serif;font-weight:400;font-size:32px;margin:40px 0 14px;color:#2a1a0c">A lenda da Fazenda dos Corvos</h3>
+  <p>A batalha funcionava. Ele não gostou. <em style="color:#8f4f0c">"Está faltando narrativa, está muito seco. A do Kraken teve emoção. Esse é um chefe mais forte, um nível acima."</em> Ele tinha razão. O Espantalho parecia uma planilha com foice.</p>
+  <blockquote style="margin:0 0 24px;padding:20px 24px;background:rgba(120,75,25,.13);border-left:3px solid rgba(140,80,20,.5);font-style:italic;color:#3a2614">Depois que o Kraken afundou, os pescadores voltaram ao mar, e a fome voltou à terra. Na Fazenda dos Laços, ninguém colhe há sete anos. O fazendeiro, desesperado, pediu ao mar um guardião para as plantações. Na manhã seguinte havia um espantalho no milho: costurado com velas de navios afundados, uma âncora enferrujada como foice, e no peito um coração de alga que ainda pulsa. O fazendeiro nunca mais foi visto. Os corvos, sim. E o Espantalho só tem uma regra: quem entra na fazenda, conta do zero.</blockquote>
+  <p>A batalha virou cinco atos. Na chegada, o milho cinza se mexe sem vento, e a cabeça de saco gira até os botões pararem em você. Os corvos têm nome, e cada um tem a sua morte. Quando o último cai, o Espantalho arranca-se da cruz com os pregos estalando como tiros: <em style="color:#8f4f0c">"Você matou meus filhos. Agora eu vou contar a SUA vida. Do zero."</em></p>
+  <p>Aqui está o que me agrada nesta história: cada efeito dramático é uma ferramenta da Ilha 2. A morte de cada corvo mora num <code style="font-family:'JetBrains Mono',monospace">HashMap&lt;String, String&gt;</code>: o ArrayList diz quem está na frente, e o livro diz como ele morre. As bicadas são um array de três frases, sorteado com <code style="font-family:'JetBrains Mono',monospace">bicadas[rolarDado(3) - 1]</code>. Sem o <code style="font-family:'JetBrains Mono',monospace">- 1</code>, um dia o dado abriria uma gaveta que não existe. O Espantalho do Índice Zero escondido dentro da própria batalha.</p>
+<details style="background:#0e0c09;border:1px solid #2a241b;margin:20px 0"><summary style="padding:12px 18px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#7fc89a">Forja.java: uma estrutura entrega a chave para a outra</summary><pre style="margin:0;padding:0 18px 18px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#d8d0bd">String corvoDaVez = corvos.get(0);              // o ArrayList diz QUEM
+System.out.println(morteCorvo.get(corvoDaVez)); // o HashMap diz COMO
+corvos.remove(0);</pre></details>
+  <h3 style="font-family:'IM Fell English',serif;font-weight:400;font-size:32px;margin:40px 0 14px;color:#2a1a0c">A fúria</h3>
+  <p>Um chefe de nível acima precisa mudar quando está morrendo. Abaixo de 10 de vida, o coração de alga brilha verde, a palha pega fogo sem queimar, e ele grita: <em style="color:#8f4f0c">"O MAR ME DEU ESTE CORAÇÃO! E O MAR NÃO PERDE!"</em> A partir daí acerta acima de 6 e corta com d8. Para o grito acontecer uma vez só, nasceu uma bandeira: <code style="font-family:'JetBrains Mono',monospace">boolean furia = false</code>.</p>
+  <p>Ele colou o bloco da fúria duas vezes, uma no acerto e outra no erro. Perguntei: se você errou, a vida do Espantalho mudou? Não. Então a cópia nunca faria nada. Antes que eu terminasse a explicação, ele já tinha juntado as duas num lugar só.</p>
+<details style="background:#0e0c09;border:1px solid #2a241b;margin:20px 0"><summary style="padding:12px 18px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#7fc89a">Forja.java: a bandeira</summary><pre style="margin:0;padding:0 18px 18px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#d8d0bd">if (!furia &amp;&amp; vidaEspantalho &lt;= 10 &amp;&amp; vidaEspantalho &gt; 0) {
+    furia = true;
+    System.out.println("Espantalho : O MAR ME DEU ESTE CORAÇÃO! E O MAR NÃO PERDE!");
+}
+
+if (furia) {
+    chance = 6;
+    dano = rolarDado(8);
+} else {
+    chance = 10;
+    dano = rolarDado(6);
+}</pre></details>
+  <h3 style="font-family:'IM Fell English',serif;font-weight:400;font-size:32px;margin:40px 0 14px;color:#2a1a0c">O portão</h3>
+  <p>Por fim, a regra de negócio. Só entra na fazenda quem venceu o mar: sem o <code style="font-family:'JetBrains Mono',monospace">"Tentaculo do Kraken"</code> no baú, um corvo pousa no ombro e ri. Nesse ponto ele disse: <em style="color:#8f4f0c">"faça isso para mim, já buguei a mente"</em>. Eu fiz. Um <code style="font-family:'JetBrains Mono',monospace">if</code> para abraçar a fazenda inteira, e o nome copiado letra por letra da linha 277, sem acento. Com um "Tentáculo" acentuado, o corvo riria dele para sempre. Depois pediu os dados na tela, como no Kraken: d20 contra cada corvo, d4 da bicada, d20 mais bônus e d8 de dano, e o d20 da foice.</p>
+  <pre style="margin:20px 0;padding:18px;background:#0e0c09;border:1px solid #2a241b;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#7fc89a">Narrador : O último corvo cai. Silêncio.
+Espantalho : O MAR ME DEU ESTE CORAÇÃO! E O MAR NÃO PERDE!
+Narrador : Sua vida chega a zero. Ele tinha razão: tudo começa do zero.
+Narrador : Amanhã, haverá um espantalho novo no campo. Ele terá o seu chapéu.</pre>
+  <p>No meu teste, o Espantalho me matou, com seis runs no estômago. No dele, testou e disse: <em style="color:#8f4f0c">"ficou muito bom"</em>. O Kraken foi uma luta. O Espantalho é uma história.</p>
+
   <p>A Ilha 2 caiu. Próxima parada: o Reino dos Objetos. Classes, construtores, e um rei que nunca foi construído.</p>
 </section>
 
