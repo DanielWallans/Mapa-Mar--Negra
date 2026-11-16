@@ -157,7 +157,7 @@ Faces opostas somam `lados + 1`, como nos dados de verdade (no d6, somam 7). Tir
 
 ## O Diário de Bordo
 
-A narrativa completa dos primeiros dias, contada pela IA que conduziu cada passo, num **pergaminho gigante** com taverna 3D e d20 clicável. Acessível pelo botão no canto do mapa, com transição de ida e volta.
+A narrativa completa dos primeiros dias, contada pelo Narrador que acompanhou cada passo, num **pergaminho gigante** com taverna 3D e d20 clicável. Acessível pelo botão no canto do mapa, com transição de ida e volta.
 
 ![Diário de Bordo](docs/img/diario.png)
 
