@@ -2,7 +2,7 @@
 import { useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { route, intro, heightAt } from "@/lib/world";
+import { seaRoute, intro } from "@/lib/world";
 import { getTextures, glowTexture } from "@/lib/textures";
 
 /* Galeão pirata procedural: casco em loft com tábuas pintadas em canvas,
@@ -114,7 +114,7 @@ function Sail({ w, h, y, x, tex, belly = .4, phase = 0, geoRef }) {
 export default function Ship() {
   const ref = useRef(), body = useRef(), flag = useRef(), wake = useRef();
   const sails = useRef([]);
-  const { curve } = route();
+  const { curve } = seaRoute();
   const M = useMemo(() => {
     const T = getTextures();
     const wn = T.woodNormal.clone(); wn.repeat.set(3, 1); wn.needsUpdate = true;
@@ -152,17 +152,11 @@ export default function Ship() {
     if (Math.abs(du) > 1e-5) s.dir = du > 0 ? 1 : -1;
     s.speed += (Math.min(1, Math.abs(du) / dt * 40) - s.speed) * Math.min(1, dt * 2);
 
-    const p = curve.getPointAt(u, tmp.p), q = curve.getPointAt(Math.min(1, u + .004), tmp.q);
+    const p = curve.getPointAt(u, tmp.p), q = curve.getPointAt(Math.min(1, u + .0015), tmp.q);
     const dx = q.x - p.x, dz = q.z - p.z, l = Math.hypot(dx, dz) || 1;
-    // navega ao lado da rota (não em cima do selo)
-    // fica sempre na água: testa os dois bordos, afastando até achar mar
-    const nx = -dz / l, nz = dx / l;
-    let ox = nx * 2.6, oz = nz * 2.6;
-    found: for (const d of [2.6, 4, 5.5, 7, 9, 11]) for (const sg of [s.side || 1, -(s.side || 1)]) {
-      if (heightAt(p.x + nx * d * sg, p.z + nz * d * sg) < -.3) { ox = nx * d * sg; oz = nz * d * sg; s.side = sg; break found; }
-    }
-    if (!s.pos) s.pos = new THREE.Vector3(p.x + ox, .15, p.z + oz);
-    s.pos.x += (p.x + ox - s.pos.x) * Math.min(1, dt * 3); s.pos.z += (p.z + oz - s.pos.z) * Math.min(1, dt * 3);
+    // segue a rota marítima (já contorna as ilhas); a posição só amacia o movimento
+    if (!s.pos) s.pos = p.clone();
+    s.pos.lerp(p, Math.min(1, dt * 6)); s.pos.y = .15;
     ref.current.position.copy(s.pos);
     // rumo com giro suave (vira de bordo ao voltar)
     const target = Math.atan2(-dz * s.dir, dx * s.dir);

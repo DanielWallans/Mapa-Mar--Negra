@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import gsap from "gsap";
 import { DIARIO, PREVISTO, ILHAS } from "@/lib/data";
-import { estado, intro, route, DIA_ATUAL } from "@/lib/world";
+import { estado, intro, seaRoute, DIA_ATUAL } from "@/lib/world";
 import Intro from "./ui/Intro";
 import { TopBar, IsleNav, Ledger, Tooltip } from "./ui/Hud";
 import Scroll from "./ui/Scroll";
@@ -26,7 +26,7 @@ export default function MareApp() {
   // timeline 3D da entrada (GSAP anima o estado lido pelos useFrame)
   const reveal = useCallback(() => {
     setStarted(true);
-    const { dayU } = route();
+    const { dockU: dayU } = seaRoute();
     const u = dayU[DIA_ATUAL] || 0;
     const tl = gsap.timeline();
     tl.to(intro, { reveal: 1, duration: 3.2, ease: "power2.inOut" }, .6)
@@ -43,7 +43,7 @@ export default function MareApp() {
   // o navio navega suavemente até o ponto que está sendo visto (nunca além do dia atual)
   useEffect(() => {
     if (!hudOn) return;
-    const { dayU } = route();
+    const { dockU: dayU } = seaRoute();
     const alvoDia = dia ? Math.min(dia, DIA_ATUAL) : view ? Math.min(ILHAS[view - 1].dias[1], DIA_ATUAL) : DIA_ATUAL;
     const u = dayU[Math.max(1, alvoDia)] || 0;
     if (Math.abs(u - intro.ship) < 1e-4) return;
