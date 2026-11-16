@@ -1,7 +1,7 @@
 "use client";
 import { useLayoutEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
-import { ISLES, VOLCANO, isleHeight, heightAt, fbm, hash, W, Z } from "@/lib/world";
+import { ISLES, VOLCANO, isleHeight, heightAt, fbm, hash, W, Z, espantalhoPos } from "@/lib/world";
 import { POS } from "@/lib/data";
 import { getTextures } from "@/lib/textures";
 
@@ -61,6 +61,7 @@ function Trees() {
       if (Math.hypot(x - VOLCANO.x, z - VOLCANO.z) < 9) continue;
       if (Object.values(POS).some(([px, py]) => Math.hypot(W(px) - x, Z(py) - z) < 2.2)) continue;
       if (Math.hypot(x - W(626), z - Z(400)) < 5) continue;
+      { const [ex, , ez] = espantalhoPos(); if (Math.hypot(x - ex, z - ez) < 3.5) continue; }
       out.push({ x, z, h, s: .5 + hash(i, 3) * .9, r: hash(i, 9) * 6 });
     }
     return out;

@@ -40,6 +40,18 @@ export default function MareApp() {
     if (matchMedia("(prefers-reduced-motion: reduce)").matches || location.search.includes("skip")) { intro.instant = true; tl.progress(1); }
   }, []);
 
+  // o navio navega suavemente até o ponto que está sendo visto (nunca além do dia atual)
+  useEffect(() => {
+    if (!hudOn) return;
+    const { dayU } = route();
+    const alvoDia = dia ? Math.min(dia, DIA_ATUAL) : view ? Math.min(ILHAS[view - 1].dias[1], DIA_ATUAL) : DIA_ATUAL;
+    const u = dayU[Math.max(1, alvoDia)] || 0;
+    if (Math.abs(u - intro.ship) < 1e-4) return;
+    const dur = Math.min(6, 1.6 + Math.abs(u - intro.ship) * 14);
+    const tw = gsap.to(intro, { ship: u, duration: dur, ease: "sine.inOut", overwrite: true });
+    return () => tw.kill();
+  }, [view, dia, hudOn]);
+
   const onHover = useCallback((d, e) => {
     setHovered(d);
     document.body.style.cursor = d ? "pointer" : "";

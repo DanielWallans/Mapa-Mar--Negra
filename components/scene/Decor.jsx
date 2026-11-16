@@ -109,8 +109,8 @@ function Volcano() {
   );
 }
 
-function Kraken() {
-  const done = DIAS_CONCLUIDOS >= 7;
+export function Kraken({ at, vivo } = {}) {
+  const done = !vivo && DIAS_CONCLUIDOS >= 7;
   const group = useRef();
   const tents = useMemo(() => Array.from({ length: 6 }, (_, i) => {
     const pts = []; for (let j = 0; j <= 12; j++) pts.push(new THREE.Vector3(0, j * .65, 0));
@@ -140,8 +140,16 @@ function Kraken() {
     group.current.position.y = done ? -1.2 + Math.sin(t * .5) * .3 : Math.sin(t * .7) * .5;
   });
   return (
-    <group ref={group} position={[W(500), 0, Z(752)]} scale={done ? .65 : 1}>
+    <group ref={group} position={at || [W(500), 0, Z(752)]} scale={done ? .65 : 1}>
       {tents.map((t, i) => <mesh key={i} geometry={t.geo} material={mat} position={t.pos} />)}
+      {/* cabeça (manto) e olhos */}
+      <mesh position={[0, 1.4, 0]} scale={[2.1, 2.9, 2.1]} rotation-x={-.25} material={mat} castShadow><sphereGeometry args={[1, 32, 24]} /></mesh>
+      {[-.85, .85].map((x) => (
+        <group key={x} position={[x, 1.9, 1.62]}>
+          <mesh><sphereGeometry args={[.42, 16, 12]} /><meshStandardMaterial color="#f2d36b" emissive="#ffb21f" emissiveIntensity={done ? .3 : 1.6} /></mesh>
+          <mesh position-z={.33} scale={[.12, .34, .1]}><sphereGeometry args={[1, 10, 8]} /><meshBasicMaterial color="#0a0406" /></mesh>
+        </group>
+      ))}
       <pointLight position={[0, 2, 0]} color="#ff3a6a" intensity={done ? 4 : 12} distance={10} />
     </group>
   );

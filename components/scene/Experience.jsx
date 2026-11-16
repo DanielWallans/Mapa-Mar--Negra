@@ -10,6 +10,7 @@ import Route from "./Route";
 import Markers from "./Markers";
 import Ship from "./Ship";
 import Sharks from "./Sharks";
+import Scarecrow from "./Scarecrow";
 import CameraRig from "./CameraRig";
 import Effects from "./Effects";
 import { Sky, Lights, IslandLabels } from "./Atmosphere";
@@ -35,6 +36,7 @@ export default function Experience({ view, focusDay, started, labels, hovered, o
         <Markers hovered={hovered} onHover={onHover} onSelect={onSelect} />
         <Ship />
         <Sharks />
+        <Scarecrow />
         <IslandLabels visible={labels} />
         <CameraRig view={view} focusDay={focusDay} started={started} />
         <Effects />

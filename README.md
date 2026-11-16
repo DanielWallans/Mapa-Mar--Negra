@@ -52,6 +52,25 @@ Oceano vivo com ondas que **rolam até as ilhas e quebram na praia**, tubarões 
 </tr>
 </table>
 
+### O galeão do capitão
+
+Casco montado tábua por tábua (secções em loft, textura pintada em canvas), castelo de popa com janelas acesas, três mastros, velas que incham quando o vento pega, bujarrona, canhões, lanternas e a bandeira negra tremulando. Toda vez que você escolhe uma ilha ou um dia já navegado, o navio **zarpa pela rota** até lá, vira de bordo com calma e balança nas ondas. Nada de teletransporte: pirata que se preze navega.
+
+![Galeão pirata](docs/img/navio.png)
+
+### Os chefes que já caíram
+
+<table>
+<tr>
+<td><img src="docs/img/kraken.png" alt="Kraken da Divisão Inteira"/></td>
+<td><img src="docs/img/espantalho.png" alt="Espantalho do Índice Zero"/></td>
+</tr>
+<tr>
+<td align="center"><b>Kraken da Divisão Inteira</b><br/><i>Mora no mar ao sul do Porto das Variáveis. Afundou quando <code>7 / 2</code> deixou de dar <code>3</code>.</i></td>
+<td align="center"><b>Espantalho do Índice Zero</b><br/><i>Guarda a Fazenda dos Laços: velas costuradas, foice de âncora, coração de alga e três corvos. Caiu no <code>get(0)</code>.</i></td>
+</tr>
+</table>
+
 ## O mapa em 2D — a carta original
 
 Antes de virar 3D, a Maré Negra nasceu como uma carta náutica desenhada à mão em HTML/SVG. Ela continua a bordo em [`docs/mapa-2d.html`](docs/mapa-2d.html).
