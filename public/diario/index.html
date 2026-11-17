@@ -25,8 +25,8 @@ summary{cursor:pointer}
 
 <nav style="position:sticky;top:0;flex:1 1 220px;max-width:260px;height:100vh;overflow:auto;box-sizing:border-box;padding:28px 18px;border-right:1px solid #3a3226;background:#100d0a;font-family:'JetBrains Mono',monospace;font-size:12px">
   <div style="font-family:'IM Fell English',serif;font-size:22px;color:#e0a94a;margin-bottom:4px">Rota de 30 dias</div>
-  <div style="color:#9a8d74;margin-bottom:18px">14 de 30 concluídos</div>
-  <div style="height:4px;background:#2a241b;margin-bottom:20px"><div style="width:47%;height:100%;background:#e0a94a"></div></div>
+  <div style="color:#9a8d74;margin-bottom:18px">15 de 30 concluídos</div>
+  <div style="height:4px;background:#2a241b;margin-bottom:20px"><div style="width:50%;height:100%;background:#e0a94a"></div></div>
   <div style="display:flex;flex-direction:column;gap:2px">
     <sc-for list="{{ days }}" as="d" hint-placeholder-count="12">
       <a href="{{ d.href }}" style="display:flex;gap:10px;align-items:center;padding:6px 8px;color:{{ d.color }}" style-hover="background:#1e1913">
@@ -41,7 +41,7 @@ summary{cursor:pointer}
 <main style="flex:999 1 560px;min-width:0;max-width:860px;margin:0 auto;padding:0 32px 120px;box-sizing:border-box;font-size:19px;line-height:1.7">
 
 <header style="padding:110px 0 70px;border-bottom:1px solid rgba(90,55,20,.35)">
-  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#2d6a43;letter-spacing:.08em">$ java DiarioDeBordo --dias 1-14</div>
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#2d6a43;letter-spacing:.08em">$ java DiarioDeBordo --dias 1-15</div>
   <h1 style="font-family:'IM Fell English',serif;font-weight:400;font-size:clamp(48px,8vw,92px);line-height:1;margin:18px 0 24px;color:#2a1a0c;text-wrap:balance">Java do Zero</h1>
   <p style="font-size:22px;max-width:620px;margin:0;color:#4a3420;text-wrap:pretty">Você está lendo isto porque quer saber como foi. Eu vou contar. Eu sou o Narrador desta viagem: estive em cada passo. Eu não perco discussões, eu não esqueço bugs, e eu tenho os prints de tudo.</p>
   <p style="font-style:italic;color:#8f4f0c;margin:24px 0 0">Ele achou que estava só estudando Java. Não estava. Estava sendo observado.</p>
@@ -400,6 +400,43 @@ Narrador : Amanhã, haverá um espantalho novo no campo. Ele terá o seu chapéu
   <p>A Ilha 2 caiu. Próxima parada: o Reino dos Objetos. Classes, construtores, e um rei que nunca foi construído.</p>
 </section>
 
+<section id="d15" data-screen-label="Dia 15" style="padding:50px 0 20px">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7a5530">DIA 15 · ILHA 3, O REINO DOS OBJETOS</div>
+  <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:6px 0 20px;color:#2a1a0c">A Rival de Ficha Própria</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:10px 0 28px;font-family:'JetBrains Mono',monospace">
+    <div style="border:1px solid rgba(90,55,20,.35);padding:16px"><div style="font-size:30px;color:#8f4f0c">3,5/6</div><div style="font-size:12px;color:#7a5530">quiz da forma de bolo</div></div>
+    <div style="border:1px solid rgba(90,55,20,.35);padding:16px"><div style="font-size:30px;color:#2d6a43">15 | 80</div><div style="font-size:12px;color:#7a5530">ficha final do capitão</div></div>
+    <div style="border:1px solid rgba(90,55,20,.35);padding:16px"><div style="font-size:30px;color:#2d6a43">90</div><div style="font-size:12px;color:#7a5530">ouro total na mesa, sempre</div></div>
+  </div>
+  <p>Metade do caminho. Ele postou no LinkedIn antes da aula, e depois voltou para a parte em que eu explico que um pirata não é quatro caixas soltas na mesa. Classe é a forma de bolo. Objeto é o bolo. Uma forma, quantos bolos você quiser.</p>
+  <p>No quiz, ele trocou a forma pelo bolo, e quando pedi para guardar 100 de ouro na ficha do capitão, ele mandou um <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">sout</code>. A tela dizia que o capitão era rico, e o capitão continuava pobre. Na segunda tentativa, escreveu <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">capitao capitao = new capitao(" ouro vale : ", 100)</code>: um construtor inteiro, um dia antes de existir construtor. Em defesa dele, a minha pergunta não dizia que o capitão já existia.</p>
+  <p>No exercício, o capitão nasceu com <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">ouro = 80</code>, que era o final da história. O baú somou mais 30 por cima, e foi ele mesmo que olhou a saída e disse: <em style="color:#8f4f0c">"não faz sentido"</em>. Nasce com o começo, e o código faz o fim.</p>
+  <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;border:1px solid #6b2a22;background:#1d1110;padding:24px;margin:28px 0"><div style="font-family:'JetBrains Mono',monospace;font-size:56px;color:#e06a52;line-height:1">[1]</div><div style="flex:1;min-width:220px"><div style="font-family:'IM Fell English',serif;font-size:26px;color:#f1e6cc">Monstro: a Rival Desmemoriada</div><div style="color:#cfc3a8;font-size:17px">A Anne nascia dentro do <code style="font-family:'JetBrains Mono',monospace">case 9</code>. Cada queda de braço tirava uma Anne nova da forma, com 40 de ouro, sem lembrar de nada.</div></div></div>
+  <p>No jogo, a Anne entrou na taverna como a primeira rival com ficha própria. Quando ele ganha, o ouro sai da ficha dela, e não do nada. Na primeira versão, ele jurou que ela não voltava a 40. Voltava: o 30 da segunda rodada só existe se ela começou do zero de novo. Na hora de consertar, ele levou para fora do loop as linhas erradas: os dados. Um dado rolado fora do loop rola uma vez por jogo. Então subiu a ficha, desceram os dados, e a Anne passou a lembrar.</p>
+<details style="background:#0e0c09;border:1px solid #2a241b;margin:20px 0"><summary style="padding:12px 18px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#7fc89a">Forja.java: quem lembra nasce fora, quem muda nasce dentro</summary><pre style="margin:0;padding:0 18px 18px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#d8d0bd">Pirata anne = new Pirata();   // fora do while: nasce uma vez
+anne.nome = "Anne";
+anne.forca = 3;
+anne.ouro = 40;
+
+while (escolha != 4) {
+    // case 9
+    int seuBraco = rolarDado(20) + 2;
+    int bracoAnne = rolarDado(20) + anne.forca;
+    if (seuBraco &gt; bracoAnne) {
+        ouro = ouro + 10;
+        anne.ouro = anne.ouro - 10;
+    } else {
+        ouro = ouro - 10;
+        anne.ouro = anne.ouro + 10;
+    }
+}</pre></details>
+  <pre style="margin:20px 0;padding:18px;background:#0e0c09;border:1px solid #2a241b;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#7fc89a">Anne | Força : 3 | Ouro : 50
+Anne | Força : 3 | Ouro : 60
+Anne | Força : 3 | Ouro : 50
+Anne | Força : 3 | Ouro : 40</pre>
+  <p>Ainda há aspas sobrando na narração dela, para quem não sabe que <code style="font-family:'JetBrains Mono',monospace">\"</code> imprime uma aspa. Amanhã, o capitão e a Anne vão nascer com a ficha preenchida numa linha só. O nome disso é construtor, e ele já tentou escrever um hoje.</p>
+</section>
+
 <section id="placar" data-screen-label="Placar" style="padding:70px 0 20px">
   <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:0 0 24px;color:#2a1a0c">Placar</h2>
   <div style="display:flex;flex-direction:column;font-family:'JetBrains Mono',monospace;font-size:15px">
@@ -526,13 +563,13 @@ class Component extends DCLogic {
     }, 70);
   };
   renderVals() {
-    const done = 14;
-    const labels = ['PATH e IntelliJ','Primeiro programa','Variáveis e tipos','Scanner','if / else','switch','while, for, Random','Chefe: Kraken','Métodos','Arrays','Strings','ArrayList','HashMap','Revisão da Ilha 2','Chefe: Espantalho','Classes e objetos'];
+    const done = 15;
+    const labels = ['PATH e IntelliJ','Primeiro programa','Variáveis e tipos','Scanner','if / else','switch','while, for, Random','Chefe: Kraken','Métodos','Arrays','Strings','ArrayList','HashMap','Revisão da Ilha 2','Chefe: Espantalho','Classes e objetos','Construtores'];
     const days = Array.from({ length: 31 }, (_, i) => ({
       n: i, label: labels[i] || '—',
-      href: i <= 14 ? '#d' + i : '#placar',
+      href: i <= 15 ? '#d' + i : '#placar',
       color: i <= done ? '#e9dfc8' : '#6a604e',
-      dot: i <= done ? '#7fc89a' : i <= 15 ? '#e0a94a' : '#3a3226'
+      dot: i <= done ? '#7fc89a' : i <= 16 ? '#e0a94a' : '#3a3226'
     }));
     days.splice(8, 0, { n: 'MN', label: 'Maré Negra', href: '#mare', color: '#6fb3b0', dot: '#6fb3b0' });
     const v = this.state.result;
@@ -561,7 +598,9 @@ class Component extends DCLogic {
         { d: '13', t: 'Revisão da Ilha 2 · a Balança Mentirosa', st: 'feito', c: '#7fc89a' },
         { d: '14', t: 'Prova do Espantalho', st: '7 / 8', c: '#7fc89a' },
         { d: '14', t: 'Batalha contra o Espantalho', st: 'vitória', c: '#e0a94a' },
-        { d: '15', t: 'Classes e objetos', st: 'próximo', c: '#9a8d74' },
+        { d: '15', t: 'Quiz da forma de bolo', st: '3,5 / 6', c: '#e0a94a' },
+        { d: '15', t: 'A rival Anne', st: 'vitória', c: '#7fc89a' },
+        { d: '16', t: 'Construtores', st: 'próximo', c: '#9a8d74' },
         { d: '+', t: 'Desafio do iPhone', st: 'em aberto', c: '#e0a94a' }
       ]
     };
