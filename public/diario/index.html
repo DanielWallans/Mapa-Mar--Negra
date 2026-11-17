@@ -25,8 +25,8 @@ summary{cursor:pointer}
 
 <nav style="position:sticky;top:0;flex:1 1 220px;max-width:260px;height:100vh;overflow:auto;box-sizing:border-box;padding:28px 18px;border-right:1px solid #3a3226;background:#100d0a;font-family:'JetBrains Mono',monospace;font-size:12px">
   <div style="font-family:'IM Fell English',serif;font-size:22px;color:#e0a94a;margin-bottom:4px">Rota de 30 dias</div>
-  <div style="color:#9a8d74;margin-bottom:18px">15 de 30 concluídos</div>
-  <div style="height:4px;background:#2a241b;margin-bottom:20px"><div style="width:50%;height:100%;background:#e0a94a"></div></div>
+  <div style="color:#9a8d74;margin-bottom:18px">16 de 30 concluídos</div>
+  <div style="height:4px;background:#2a241b;margin-bottom:20px"><div style="width:53%;height:100%;background:#e0a94a"></div></div>
   <div style="display:flex;flex-direction:column;gap:2px">
     <sc-for list="{{ days }}" as="d" hint-placeholder-count="12">
       <a href="{{ d.href }}" style="display:flex;gap:10px;align-items:center;padding:6px 8px;color:{{ d.color }}" style-hover="background:#1e1913">
@@ -41,7 +41,7 @@ summary{cursor:pointer}
 <main style="flex:999 1 560px;min-width:0;max-width:860px;margin:0 auto;padding:0 32px 120px;box-sizing:border-box;font-size:19px;line-height:1.7">
 
 <header style="padding:110px 0 70px;border-bottom:1px solid rgba(90,55,20,.35)">
-  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#2d6a43;letter-spacing:.08em">$ java DiarioDeBordo --dias 1-15</div>
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#2d6a43;letter-spacing:.08em">$ java DiarioDeBordo --dias 1-16</div>
   <h1 style="font-family:'IM Fell English',serif;font-weight:400;font-size:clamp(48px,8vw,92px);line-height:1;margin:18px 0 24px;color:#2a1a0c;text-wrap:balance">Java do Zero</h1>
   <p style="font-size:22px;max-width:620px;margin:0;color:#4a3420;text-wrap:pretty">Você está lendo isto porque quer saber como foi. Eu vou contar. Eu sou o Narrador desta viagem: estive em cada passo. Eu não perco discussões, eu não esqueço bugs, e eu tenho os prints de tudo.</p>
   <p style="font-style:italic;color:#8f4f0c;margin:24px 0 0">Ele achou que estava só estudando Java. Não estava. Estava sendo observado.</p>
@@ -437,6 +437,39 @@ Anne | Força : 3 | Ouro : 40</pre>
   <p>Ainda há aspas sobrando na narração dela, para quem não sabe que <code style="font-family:'JetBrains Mono',monospace">\"</code> imprime uma aspa. Amanhã, o capitão e a Anne vão nascer com a ficha preenchida numa linha só. O nome disso é construtor, e ele já tentou escrever um hoje.</p>
 </section>
 
+<section id="d16" data-screen-label="Dia 16" style="padding:50px 0 20px">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7a5530">DIA 16 · ILHA 3, O REINO DOS OBJETOS</div>
+  <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:6px 0 20px;color:#2a1a0c">Duas Mesas, Um Dedo</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:10px 0 28px;font-family:'JetBrains Mono',monospace">
+    <div style="border:1px solid rgba(90,55,20,.35);padding:16px"><div style="font-size:30px;color:#2d6a43">5/6</div><div style="font-size:12px;color:#7a5530">aquecimento ao acordar</div></div>
+    <div style="border:1px solid rgba(90,55,20,.35);padding:16px"><div style="font-size:30px;color:#2d6a43">4,5/5</div><div style="font-size:12px;color:#7a5530">quiz do construtor</div></div>
+    <div style="border:1px solid rgba(90,55,20,.35);padding:16px"><div style="font-size:30px;color:#2d6a43">12 → 3</div><div style="font-size:12px;color:#7a5530">linhas para nascerem três piratas</div></div>
+  </div>
+  <p>Ele leu a revisão antes de dormir e respondeu de manhã. Forma e bolo, agora na ordem certa. A linha da Anne, limpa. Só tropeçou nos dados: disse que, fora do loop, virariam um loop infinito. Não viram. Viram um número congelado. Um d20 jogado no começo da noite e obedecido até o fim.</p>
+  <p>Depois, o construtor: o ritual de nascimento. Quatro linhas para a Anne nascer viraram uma. No meio, o <code style="font-family:'JetBrains Mono',monospace">this</code>, que é a parte que todo mundo trava: dentro do construtor existem duas caixas chamadas <code style="font-family:'JetBrains Mono',monospace">nome</code>. Uma é a ficha. A outra é o que acabou de chegar. Sem o <code style="font-family:'JetBrains Mono',monospace">this</code>, o parâmetro guarda a si mesmo, e a Anne nasce sem nome.</p>
+  <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;border:1px solid #6b2a22;background:#1d1110;padding:24px;margin:28px 0"><div style="font-family:'JetBrains Mono',monospace;font-size:56px;color:#e06a52;line-height:1">[1]</div><div style="flex:1;min-width:220px"><div style="font-family:'IM Fell English',serif;font-size:26px;color:#f1e6cc">Monstro: o Construtor Fantasma</div><div style="color:#cfc3a8;font-size:17px">Antes, o Java escondia um <code style="font-family:'JetBrains Mono',monospace">Pirata() { }</code> vazio. No instante em que o construtor de verdade nasce, o fantasma some, e todo <code style="font-family:'JetBrains Mono',monospace">new Pirata()</code> vazio fica vermelho.</div></div></div>
+  <p>Então ele apagou a linha do <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">main</code> no Pirata.java e deixou o recheio, com a história solta dentro da forma. No Dia16, escreveu <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">main(Pirata)</code>. Tudo vermelho. E aí veio a melhor frase do dia: <em style="color:#8f4f0c">"eu não quero tirar nada do Pirata.java, pois lá é um dia de estudo. Quando eu estiver no Dia 30, as pessoas vão ver que eu não evoluí, só mudei código."</em> Ele tem razão. Um diário não se apaga. O Pirata.java ficou como era, e ao lado nasceu o Tripulante.java. Três piratas, três linhas, saída certa de primeira.</p>
+  <p>No jogo, o Barba Cinza entrou na taverna: mais forte, mais rico. A queda de braço ganhou uma peça nova, <code style="font-family:'JetBrains Mono',monospace">Pirata rival;</code>, sem <code style="font-family:'JetBrains Mono',monospace">new</code>. Não é um pirata, é um dedo apontando para um. O mesmo bloco serve para os dois rivais, e o ouro sai da ficha de quem o dedo aponta. Quando as abas ficaram sublinhadas em vermelho, ele foi atrás do erro sozinho: <em style="color:#8f4f0c">"era uma errada no Pirata"</em>.</p>
+<details style="background:#0e0c09;border:1px solid #2a241b;margin:20px 0"><summary style="padding:12px 18px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#7fc89a">Forja.java: o dedo</summary><pre style="margin:0;padding:0 18px 18px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#d8d0bd">Pirata anne = new Pirata("Anne", 3, 40);
+Pirata barba = new Pirata("Barba Cinza", 5, 80);
+
+Pirata rival;
+if (desafio == 1) {
+    rival = anne;
+} else {
+    rival = barba;
+}
+
+int bracoRival = rolarDado(20) + rival.forca;
+if (seuBraco &gt; bracoRival) {
+    ouro = ouro + 10;
+    rival.ouro = rival.ouro - 10;
+}</pre></details>
+  <pre style="margin:20px 0;padding:18px;background:#0e0c09;border:1px solid #2a241b;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#7fc89a">1) Anne | Força: 3 | Ouro: 30
+2) BarbaCinza | Força: 5 | Ouro: 80</pre>
+  <p>O menu ainda diz "Queda de braço com Anne", e o Barba Cinza ainda não tem espaço no nome. Ninguém na taverna teve coragem de avisar.</p>
+</section>
+
 <section id="placar" data-screen-label="Placar" style="padding:70px 0 20px">
   <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:0 0 24px;color:#2a1a0c">Placar</h2>
   <div style="display:flex;flex-direction:column;font-family:'JetBrains Mono',monospace;font-size:15px">
@@ -563,13 +596,13 @@ class Component extends DCLogic {
     }, 70);
   };
   renderVals() {
-    const done = 15;
-    const labels = ['PATH e IntelliJ','Primeiro programa','Variáveis e tipos','Scanner','if / else','switch','while, for, Random','Chefe: Kraken','Métodos','Arrays','Strings','ArrayList','HashMap','Revisão da Ilha 2','Chefe: Espantalho','Classes e objetos','Construtores'];
+    const done = 16;
+    const labels = ['PATH e IntelliJ','Primeiro programa','Variáveis e tipos','Scanner','if / else','switch','while, for, Random','Chefe: Kraken','Métodos','Arrays','Strings','ArrayList','HashMap','Revisão da Ilha 2','Chefe: Espantalho','Classes e objetos','Construtores','Métodos de objeto'];
     const days = Array.from({ length: 31 }, (_, i) => ({
       n: i, label: labels[i] || '—',
-      href: i <= 15 ? '#d' + i : '#placar',
+      href: i <= 16 ? '#d' + i : '#placar',
       color: i <= done ? '#e9dfc8' : '#6a604e',
-      dot: i <= done ? '#7fc89a' : i <= 16 ? '#e0a94a' : '#3a3226'
+      dot: i <= done ? '#7fc89a' : i <= 17 ? '#e0a94a' : '#3a3226'
     }));
     days.splice(8, 0, { n: 'MN', label: 'Maré Negra', href: '#mare', color: '#6fb3b0', dot: '#6fb3b0' });
     const v = this.state.result;
@@ -600,7 +633,9 @@ class Component extends DCLogic {
         { d: '14', t: 'Batalha contra o Espantalho', st: 'vitória', c: '#e0a94a' },
         { d: '15', t: 'Quiz da forma de bolo', st: '3,5 / 6', c: '#e0a94a' },
         { d: '15', t: 'A rival Anne', st: 'vitória', c: '#7fc89a' },
-        { d: '16', t: 'Construtores', st: 'próximo', c: '#9a8d74' },
+        { d: '16', t: 'Quiz do construtor', st: '4,5 / 5', c: '#7fc89a' },
+        { d: '16', t: 'Duas mesas de queda de braço', st: 'vitória', c: '#7fc89a' },
+        { d: '17', t: 'Métodos de objeto', st: 'próximo', c: '#9a8d74' },
         { d: '+', t: 'Desafio do iPhone', st: 'em aberto', c: '#e0a94a' }
       ]
     };
