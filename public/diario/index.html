@@ -25,8 +25,8 @@ summary{cursor:pointer}
 
 <nav style="position:sticky;top:0;flex:1 1 220px;max-width:260px;height:100vh;overflow:auto;box-sizing:border-box;padding:28px 18px;border-right:1px solid #3a3226;background:#100d0a;font-family:'JetBrains Mono',monospace;font-size:12px">
   <div style="font-family:'IM Fell English',serif;font-size:22px;color:#e0a94a;margin-bottom:4px">Rota de 30 dias</div>
-  <div style="color:#9a8d74;margin-bottom:18px">16 de 30 concluídos</div>
-  <div style="height:4px;background:#2a241b;margin-bottom:20px"><div style="width:53%;height:100%;background:#e0a94a"></div></div>
+  <div style="color:#9a8d74;margin-bottom:18px">18 de 30 concluídos</div>
+  <div style="height:4px;background:#2a241b;margin-bottom:20px"><div style="width:60%;height:100%;background:#e0a94a"></div></div>
   <div style="display:flex;flex-direction:column;gap:2px">
     <sc-for list="{{ days }}" as="d" hint-placeholder-count="12">
       <a href="{{ d.href }}" style="display:flex;gap:10px;align-items:center;padding:6px 8px;color:{{ d.color }}" style-hover="background:#1e1913">
@@ -41,7 +41,7 @@ summary{cursor:pointer}
 <main style="flex:999 1 560px;min-width:0;max-width:860px;margin:0 auto;padding:0 32px 120px;box-sizing:border-box;font-size:19px;line-height:1.7">
 
 <header style="padding:110px 0 70px;border-bottom:1px solid rgba(90,55,20,.35)">
-  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#2d6a43;letter-spacing:.08em">$ java DiarioDeBordo --dias 1-16</div>
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#2d6a43;letter-spacing:.08em">$ java DiarioDeBordo --dias 1-18</div>
   <h1 style="font-family:'IM Fell English',serif;font-weight:400;font-size:clamp(48px,8vw,92px);line-height:1;margin:18px 0 24px;color:#2a1a0c;text-wrap:balance">Java do Zero</h1>
   <p style="font-size:22px;max-width:620px;margin:0;color:#4a3420;text-wrap:pretty">Você está lendo isto porque quer saber como foi. Eu vou contar. Eu sou o Narrador desta viagem: estive em cada passo. Eu não perco discussões, eu não esqueço bugs, e eu tenho os prints de tudo.</p>
   <p style="font-style:italic;color:#8f4f0c;margin:24px 0 0">Ele achou que estava só estudando Java. Não estava. Estava sendo observado.</p>
@@ -470,6 +470,41 @@ if (seuBraco &gt; bracoRival) {
   <p>O menu ainda diz "Queda de braço com Anne", e o Barba Cinza ainda não tem espaço no nome. Ninguém na taverna teve coragem de avisar.</p>
 </section>
 
+<section id="d17" data-screen-label="Dia 17" style="padding:50px 0 20px">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7a5530">DIA 17 · ILHA 3, O REINO DOS OBJETOS</div>
+  <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:6px 0 20px;color:#2a1a0c">O Pirata Que Sabe Fazer</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:10px 0 28px;font-family:'JetBrains Mono',monospace"><div style="border:1px solid rgba(90,55,20,.35);padding:16px"><div style="font-size:30px;color:#2d6a43">3/3</div><div style="font-size:12px;color:#7a5530">aquecimento do construtor</div></div><div style="border:1px solid rgba(90,55,20,.35);padding:16px"><div style="font-size:30px;color:#2d6a43">4,5/5</div><div style="font-size:12px;color:#7a5530">quiz dos métodos</div></div><div style="border:1px solid rgba(90,55,20,.35);padding:16px"><div style="font-size:30px;color:#2d6a43">0</div><div style="font-size:12px;color:#7a5530">.ouro = no main</div></div></div>
+  <p>Ele faltou um dia e voltou com um plano: dois dias numa noite, e o jogo no final. O aquecimento mostrou que o construtor ficou. Até o dedo do <code style="font-family:'JetBrains Mono',monospace">rival</code> ele explicou sozinho, só que acrescentou uma queda de braço que ninguém tinha perguntado.</p>
+  <p>Até ontem, o pirata só tinha coisas. Hoje ele aprendeu a fazer. Você não enfia a mão no bolso de ninguém: você pede "me paga 10", e quem tira o dinheiro é o dono do bolso. Ele resumiu melhor do que eu: <em style="color:#8f4f0c">"atributo é o que o pirata tem, método é o que o pirata faz"</em>.</p>
+  <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;border:1px solid #6b2a22;background:#1d1110;padding:24px;margin:28px 0"><div style="font-family:'JetBrains Mono',monospace;font-size:56px;color:#e06a52;line-height:1">[1]</div><div style="flex:1;min-width:220px"><div style="font-family:'IM Fell English',serif;font-size:26px;color:#f1e6cc">Monstro: o Recheio Fugitivo</div><div style="color:#cfc3a8;font-size:17px">O construtor sumiu do Corsario.java. O corpo dele foi parar dentro do <code style="font-family:'JetBrains Mono',monospace">pagar</code>, que só recebe <code style="font-family:'JetBrains Mono',monospace">quantia</code> e não fazia ideia do que era <code style="font-family:'JetBrains Mono',monospace">nome</code>.</div></div></div>
+  <p>Na mesma forma, o <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">receber</code> tirava dinheiro, o <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">apanhar</code> batia em alguém sem nome, e um <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">this.nome = " | Vida"</code> tentava guardar texto no nome no meio de um println. Quatro consertos, um de cada vez. No final, o main não tinha nenhum <code style="font-family:'JetBrains Mono',monospace">.ouro =</code>: só pedidos. Dá para ler em voz alta, como um roteiro.</p>
+<details style="background:#0e0c09;border:1px solid #2a241b;margin:20px 0"><summary style="padding:12px 18px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#7fc89a">Dia17.java: o main que só pede</summary><pre style="margin:0;padding:0 18px 18px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#d8d0bd">barba.pagar(20);
+capitao.receber(20);
+capitao.apanhar(7);
+capitao.apresenta();
+barba.apresenta();</pre></details>
+</section>
+
+<section id="d18" data-screen-label="Dia 18" style="padding:50px 0 20px">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7a5530">DIA 18 · ILHA 3, O REINO DOS OBJETOS</div>
+  <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:6px 0 20px;color:#2a1a0c">O Cofre do Barba Cinza</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:10px 0 28px;font-family:'JetBrains Mono',monospace"><div style="border:1px solid rgba(90,55,20,.35);padding:16px"><div style="font-size:30px;color:#2d6a43">4/5</div><div style="font-size:12px;color:#7a5530">quiz do cofre</div></div><div style="border:1px solid rgba(90,55,20,.35);padding:16px"><div style="font-size:30px;color:#8f4f0c">60 → 40</div><div style="font-size:12px;color:#7a5530">o Barba, que não pagou 200</div></div><div style="border:1px solid rgba(90,55,20,.35);padding:16px"><div style="font-size:30px;color:#2d6a43">70</div><div style="font-size:12px;color:#7a5530">ouro do capitão</div></div></div>
+  <p>A regra de não mexer no ouro de fora era só um combinado. O Java aceitava <code style="font-family:'JetBrains Mono',monospace">barba.ouro = -500</code> sem piscar. Então o ouro entrou num cofre: <code style="font-family:'JetBrains Mono',monospace">private</code>. Só a própria classe tem a chave. Quem está de fora olha pela janelinha, <code style="font-family:'JetBrains Mono',monospace">getOuro()</code>, e mexe pelo balcão, que confere antes.</p>
+  <p>No quiz, ele explicou por que o main não enxerga o ouro, quando a pergunta era como o main enxerga mesmo assim. A melhor resposta foi a da pegadinha: <em style="color:#8f4f0c">"o private impede que outras classes acessem, mas não impede que os próprios métodos da classe o utilizem"</em>.</p>
+  <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;border:1px solid #6b2a22;background:#1d1110;padding:24px;margin:28px 0"><div style="font-family:'JetBrains Mono',monospace;font-size:56px;color:#e06a52;line-height:1">[2]</div><div style="flex:1;min-width:220px"><div style="font-family:'IM Fell English',serif;font-size:26px;color:#f1e6cc">Monstro: o Return Infinito</div><div style="color:#cfc3a8;font-size:17px"><code style="font-family:'JetBrains Mono',monospace">return pagar();</code>: o balcão perguntando a si mesmo se pode pagar, para sempre. É o StackOverflowError do Dia 8, de volta com roupa de objeto.</div></div></div>
+  <p>Aí veio a confissão: <em style="color:#8f4f0c">"e eu buguei nos return"</em>. O <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">getNome</code> devolvia <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">int</code>, e o <code style="font-family:'JetBrains Mono',monospace">pagar</code> avisava "não tenho tudo isso" e tirava o ouro mesmo assim. Expliquei como um balcão de taverna: a palavra antes do nome diz que tipo de resposta o balcão dá. Sim ou não, número, texto. E o <code style="font-family:'JetBrains Mono',monospace">return</code> fecha o balcão na hora. Com o <code style="font-family:'JetBrains Mono',monospace">return false</code> virando porta de saída, o Barba Cinza tentou pagar 200 com 60 no bolso e virou os bolsos.</p>
+  <p>No jogo, a ficha dos rivais virou cofre. A Forja ficou cheia de vermelho, e isso era o cofre funcionando: a taverna estava enfiando a mão no bolso dos piratas desde o Dia 15. Agora a queda de braço pede. Você só recebe se o rival conseguir pagar.</p>
+<details style="background:#0e0c09;border:1px solid #2a241b;margin:20px 0"><summary style="padding:12px 18px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#7fc89a">Forja.java: só recebe quem conseguiu cobrar</summary><pre style="margin:0;padding:0 18px 18px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#d8d0bd">if (seuBraco &gt; bracoRival) {
+    if (rival.pagar(10)) {
+        ouro = ouro + 10;
+    }
+} else {
+    ouro = ouro - 10;
+    rival.receber(10);
+}</pre></details>
+  <p>O teste da recusa ainda não foi feito: limpar a Anne até menos de 10 moedas e ganhar mais uma vez. O código está pronto para isso. A Anne, ainda não sabe.</p>
+</section>
+
 <section id="placar" data-screen-label="Placar" style="padding:70px 0 20px">
   <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:0 0 24px;color:#2a1a0c">Placar</h2>
   <div style="display:flex;flex-direction:column;font-family:'JetBrains Mono',monospace;font-size:15px">
@@ -596,13 +631,13 @@ class Component extends DCLogic {
     }, 70);
   };
   renderVals() {
-    const done = 16;
-    const labels = ['PATH e IntelliJ','Primeiro programa','Variáveis e tipos','Scanner','if / else','switch','while, for, Random','Chefe: Kraken','Métodos','Arrays','Strings','ArrayList','HashMap','Revisão da Ilha 2','Chefe: Espantalho','Classes e objetos','Construtores','Métodos de objeto'];
+    const done = 18;
+    const labels = ['PATH e IntelliJ','Primeiro programa','Variáveis e tipos','Scanner','if / else','switch','while, for, Random','Chefe: Kraken','Métodos','Arrays','Strings','ArrayList','HashMap','Revisão da Ilha 2','Chefe: Espantalho','Classes e objetos','Construtores','Métodos de objeto','Encapsulamento','Herança'];
     const days = Array.from({ length: 31 }, (_, i) => ({
       n: i, label: labels[i] || '—',
-      href: i <= 16 ? '#d' + i : '#placar',
+      href: i <= 18 ? '#d' + i : '#placar',
       color: i <= done ? '#e9dfc8' : '#6a604e',
-      dot: i <= done ? '#7fc89a' : i <= 17 ? '#e0a94a' : '#3a3226'
+      dot: i <= done ? '#7fc89a' : i <= 19 ? '#e0a94a' : '#3a3226'
     }));
     days.splice(8, 0, { n: 'MN', label: 'Maré Negra', href: '#mare', color: '#6fb3b0', dot: '#6fb3b0' });
     const v = this.state.result;
@@ -635,7 +670,10 @@ class Component extends DCLogic {
         { d: '15', t: 'A rival Anne', st: 'vitória', c: '#7fc89a' },
         { d: '16', t: 'Quiz do construtor', st: '4,5 / 5', c: '#7fc89a' },
         { d: '16', t: 'Duas mesas de queda de braço', st: 'vitória', c: '#7fc89a' },
-        { d: '17', t: 'Métodos de objeto', st: 'próximo', c: '#9a8d74' },
+        { d: '17', t: 'Quiz dos métodos', st: '4,5 / 5', c: '#7fc89a' },
+        { d: '18', t: 'Quiz do cofre', st: '4 / 5', c: '#7fc89a' },
+        { d: '18', t: 'A taverna com cofre', st: 'vitória', c: '#7fc89a' },
+        { d: '19', t: 'Herança', st: 'próximo', c: '#9a8d74' },
         { d: '+', t: 'Desafio do iPhone', st: 'em aberto', c: '#e0a94a' }
       ]
     };
