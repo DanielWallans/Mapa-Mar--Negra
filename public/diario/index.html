@@ -25,8 +25,8 @@ summary{cursor:pointer}
 
 <nav style="position:sticky;top:0;flex:1 1 220px;max-width:260px;height:100vh;overflow:auto;box-sizing:border-box;padding:28px 18px;border-right:1px solid #3a3226;background:#100d0a;font-family:'JetBrains Mono',monospace;font-size:12px">
   <div style="font-family:'IM Fell English',serif;font-size:22px;color:#e0a94a;margin-bottom:4px">Rota de 30 dias</div>
-  <div style="color:#9a8d74;margin-bottom:18px">21 de 30 concluídos</div>
-  <div style="height:4px;background:#2a241b;margin-bottom:20px"><div style="width:70%;height:100%;background:#e0a94a"></div></div>
+  <div style="color:#9a8d74;margin-bottom:18px">22 de 30 concluídos</div>
+  <div style="height:4px;background:#2a241b;margin-bottom:20px"><div style="width:73%;height:100%;background:#e0a94a"></div></div>
   <div style="display:flex;flex-direction:column;gap:2px">
     <sc-for list="{{ days }}" as="d" hint-placeholder-count="12">
       <a href="{{ d.href }}" style="display:flex;gap:10px;align-items:center;padding:6px 8px;color:{{ d.color }}" style-hover="background:#1e1913">
@@ -41,7 +41,7 @@ summary{cursor:pointer}
 <main style="flex:999 1 560px;min-width:0;max-width:860px;margin:0 auto;padding:0 32px 120px;box-sizing:border-box;font-size:19px;line-height:1.7">
 
 <header style="padding:110px 0 70px;border-bottom:1px solid rgba(90,55,20,.35)">
-  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#2d6a43;letter-spacing:.08em">$ java DiarioDeBordo --dias 1-21</div>
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#2d6a43;letter-spacing:.08em">$ java DiarioDeBordo --dias 1-22</div>
   <h1 style="font-family:'IM Fell English',serif;font-weight:400;font-size:clamp(48px,8vw,92px);line-height:1;margin:18px 0 24px;color:#2a1a0c;text-wrap:balance">Java do Zero</h1>
   <p style="font-size:22px;max-width:620px;margin:0;color:#4a3420;text-wrap:pretty">Você está lendo isto porque quer saber como foi. Eu vou contar. Eu sou o Narrador desta viagem: estive em cada passo. Eu não perco discussões, eu não esqueço bugs, e eu tenho os prints de tudo.</p>
   <p style="font-style:italic;color:#8f4f0c;margin:24px 0 0">Ele achou que estava só estudando Java. Não estava. Estava sendo observado.</p>
@@ -554,6 +554,28 @@ Narrador : A coroa cai no chão. Embaixo dela, nunca houve ninguém.</pre>
   <p>Ele entrou no castelo com 176 de vida e zero de ouro, depois de 36 canecas. O rum continua sem limite de vida. É o trapaceiro mais antigo desta viagem, e ainda não virou monstro. A Ilha 3 caiu. Faltam nove dias.</p>
 </section>
 
+<section id="d22" data-screen-label="Dia 22" style="padding:50px 0 20px">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7a5530">DIA 22 · ILHA 4, O ARQUIPÉLAGO DOS ERROS</div>
+  <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:6px 0 20px;color:#2a1a0c">A Rede do Trapezista</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:10px 0 28px;font-family:'JetBrains Mono',monospace"><div style="border:1px solid rgba(90,55,20,.35);padding:16px"><div style="font-size:30px;color:#2d6a43">3/3</div><div style="font-size:12px;color:#7a5530">aquecimento</div></div><div style="border:1px solid rgba(90,55,20,.35);padding:16px"><div style="font-size:30px;color:#2d6a43">4/5</div><div style="font-size:12px;color:#7a5530">quiz da rede</div></div><div style="border:1px solid rgba(90,55,20,.35);padding:16px"><div style="font-size:30px;color:#2d6a43">0</div><div style="font-size:12px;color:#7a5530">exit code nos três testes</div></div></div>
+  <p>No aquecimento, além dos dois erros que eu pedi, ele achou um terceiro que eu nem tinha pedido: o <code style="font-family:'JetBrains Mono',monospace">this.nome = nome</code> sobrando, porque o <code style="font-family:'JetBrains Mono',monospace">super</code> já guarda o nome. Isso é ler código.</p>
+  <p>Até aqui, todo erro derrubava o programa. Uma letra no menu, e o ouro, o baú e a Coroa sem Dono sumiam com um <code style="font-family:'JetBrains Mono',monospace">InputMismatchException</code>. Nesta ilha, o programa aprende a cair de pé. O <code style="font-family:'JetBrains Mono',monospace">try</code> é o salto do trapezista. O <code style="font-family:'JetBrains Mono',monospace">catch</code> é a rede.</p>
+  <p>No quiz, ele explicou bem o que cada rede pega, mas esqueceu duas vezes de dizer o que acontece quando ela falha: o loop infinito de uma letra entalada, e o programa morrendo antes do "Fim". As respostas mais longas chegaram com uma formatação que não era a dele. Pedi que, na prova da ilha, venham nas palavras dele.</p>
+  <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;border:1px solid #6b2a22;background:#1d1110;padding:24px;margin:28px 0"><div style="font-family:'JetBrains Mono',monospace;font-size:56px;color:#e06a52;line-height:1">[1]</div><div style="flex:1;min-width:220px"><div style="font-family:'IM Fell English',serif;font-size:26px;color:#f1e6cc">Monstro: a Rede Errada</div><div style="color:#cfc3a8;font-size:17px">Um <code style="font-family:'JetBrains Mono',monospace">catch (InputMismatchException e)</code> esperando uma divisão por zero. O zero gritou <code style="font-family:'JetBrains Mono',monospace">ArithmeticException</code>, passou direto pela rede, e o programa morreu.</div></div></div>
+  <p>O teste da letra foi ainda melhor. A rede pegou, a mensagem apareceu, e o programa morreu mesmo assim, na linha 15, que ficava dentro do <code style="font-family:'JetBrains Mono',monospace">catch</code>. Lá estava um <code style="font-family:'JetBrains Mono',monospace;color:#9c2c18">teclado.nextInt()</code>, pedindo de novo um número para a mesma letra entalada. O trapezista caiu da rede. Uma palavra trocada por <code style="font-family:'JetBrains Mono',monospace">nextLine()</code>, e os três testes terminaram de pé.</p>
+<pre style="margin:20px 0;padding:18px;background:#0e0c09;border:1px solid #2a241b;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#7fc89a">digitou 4  → Cada marujo leva 30 moedas.  → O cofre se fecha
+digitou 0  → O capitão fica com tudo!     → O cofre se fecha
+digitou a  → Isso nao e um numero, marujo. → O cofre se fecha</pre>
+  <p>No jogo, o menu ganhou a rede. Ele digitou uma letra e o taverneiro respondeu: <em style="color:#8f4f0c">"Fala dineiro, marujo. Aqui só se pede com número."</em> Dinheiro e direito, ao mesmo tempo. Num bar, as duas coisas fazem sentido.</p>
+<details style="background:#0e0c09;border:1px solid #2a241b;margin:20px 0"><summary style="padding:12px 18px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#7fc89a">Forja.java: a taverna à prova de dedo torto</summary><pre style="margin:0;padding:0 18px 18px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#d8d0bd">try {
+    escolha = teclado.nextInt();
+} catch (InputMismatchException e) {
+    System.out.println("Taverneiro: Fala dineiro marujo. Aqui so se pede com numero.");
+    teclado.nextLine();
+    escolha = 0;
+}</pre></details>
+</section>
+
 <section id="placar" data-screen-label="Placar" style="padding:70px 0 20px">
   <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:0 0 24px;color:#2a1a0c">Placar</h2>
   <div style="display:flex;flex-direction:column;font-family:'JetBrains Mono',monospace;font-size:15px">
@@ -680,13 +702,13 @@ class Component extends DCLogic {
     }, 70);
   };
   renderVals() {
-    const done = 21;
-    const labels = ['PATH e IntelliJ','Primeiro programa','Variáveis e tipos','Scanner','if / else','switch','while, for, Random','Chefe: Kraken','Métodos','Arrays','Strings','ArrayList','HashMap','Revisão da Ilha 2','Chefe: Espantalho','Classes e objetos','Construtores','Métodos de objeto','Encapsulamento','Herança','Polimorfismo','Chefe: Rei sem Construtor','Exceções'];
+    const done = 22;
+    const labels = ['PATH e IntelliJ','Primeiro programa','Variáveis e tipos','Scanner','if / else','switch','while, for, Random','Chefe: Kraken','Métodos','Arrays','Strings','ArrayList','HashMap','Revisão da Ilha 2','Chefe: Espantalho','Classes e objetos','Construtores','Métodos de objeto','Encapsulamento','Herança','Polimorfismo','Chefe: Rei sem Construtor','Exceções','Exceções próprias'];
     const days = Array.from({ length: 31 }, (_, i) => ({
       n: i, label: labels[i] || '—',
-      href: i <= 21 ? '#d' + i : '#placar',
+      href: i <= 22 ? '#d' + i : '#placar',
       color: i <= done ? '#e9dfc8' : '#6a604e',
-      dot: i <= done ? '#7fc89a' : i <= 22 ? '#e0a94a' : '#3a3226'
+      dot: i <= done ? '#7fc89a' : i <= 23 ? '#e0a94a' : '#3a3226'
     }));
     days.splice(8, 0, { n: 'MN', label: 'Maré Negra', href: '#mare', color: '#6fb3b0', dot: '#6fb3b0' });
     const v = this.state.result;
@@ -726,7 +748,9 @@ class Component extends DCLogic {
         { d: '20', t: 'Quiz do polimorfismo', st: '4,5 / 5', c: '#7fc89a' },
         { d: '21', t: 'Prova do Rei', st: '7 / 8', c: '#7fc89a' },
         { d: '21', t: 'Batalha contra o Rei sem Construtor', st: 'vitória', c: '#e0a94a' },
-        { d: '22', t: 'Exceções', st: 'próximo', c: '#9a8d74' },
+        { d: '22', t: 'Quiz da rede', st: '4 / 5', c: '#7fc89a' },
+        { d: '22', t: 'A taverna à prova de dedo torto', st: 'vitória', c: '#7fc89a' },
+        { d: '23', t: 'Exceções próprias', st: 'próximo', c: '#9a8d74' },
         { d: '+', t: 'Desafio do iPhone', st: 'em aberto', c: '#e0a94a' }
       ]
     };
