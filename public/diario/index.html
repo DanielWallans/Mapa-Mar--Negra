@@ -25,8 +25,8 @@ summary{cursor:pointer}
 
 <nav style="position:sticky;top:0;flex:1 1 220px;max-width:260px;height:100vh;overflow:auto;box-sizing:border-box;padding:28px 18px;border-right:1px solid #3a3226;background:#100d0a;font-family:'JetBrains Mono',monospace;font-size:12px">
   <div style="font-family:'IM Fell English',serif;font-size:22px;color:#e0a94a;margin-bottom:4px">Rota de 30 dias</div>
-  <div style="color:#9a8d74;margin-bottom:18px">22 de 30 concluídos</div>
-  <div style="height:4px;background:#2a241b;margin-bottom:20px"><div style="width:73%;height:100%;background:#e0a94a"></div></div>
+  <div style="color:#9a8d74;margin-bottom:18px">23 de 30 concluídos</div>
+  <div style="height:4px;background:#2a241b;margin-bottom:20px"><div style="width:77%;height:100%;background:#e0a94a"></div></div>
   <div style="display:flex;flex-direction:column;gap:2px">
     <sc-for list="{{ days }}" as="d" hint-placeholder-count="12">
       <a href="{{ d.href }}" style="display:flex;gap:10px;align-items:center;padding:6px 8px;color:{{ d.color }}" style-hover="background:#1e1913">
@@ -41,7 +41,7 @@ summary{cursor:pointer}
 <main style="flex:999 1 560px;min-width:0;max-width:860px;margin:0 auto;padding:0 32px 120px;box-sizing:border-box;font-size:19px;line-height:1.7">
 
 <header style="padding:110px 0 70px;border-bottom:1px solid rgba(90,55,20,.35)">
-  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#2d6a43;letter-spacing:.08em">$ java DiarioDeBordo --dias 1-22</div>
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#2d6a43;letter-spacing:.08em">$ java DiarioDeBordo --dias 1-23</div>
   <h1 style="font-family:'IM Fell English',serif;font-weight:400;font-size:clamp(48px,8vw,92px);line-height:1;margin:18px 0 24px;color:#2a1a0c;text-wrap:balance">Java do Zero</h1>
   <p style="font-size:22px;max-width:620px;margin:0;color:#4a3420;text-wrap:pretty">Você está lendo isto porque quer saber como foi. Eu vou contar. Eu sou o Narrador desta viagem: estive em cada passo. Eu não perco discussões, eu não esqueço bugs, e eu tenho os prints de tudo.</p>
   <p style="font-style:italic;color:#8f4f0c;margin:24px 0 0">Ele achou que estava só estudando Java. Não estava. Estava sendo observado.</p>
@@ -576,6 +576,33 @@ digitou a  → Isso nao e um numero, marujo. → O cofre se fecha</pre>
 }</pre></details>
 </section>
 
+<section id="d23" data-screen-label="Dia 23" style="padding:50px 0 20px">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7a5530">DIA 23 · ILHA 4, O ARQUIPÉLAGO DOS ERROS</div>
+  <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:6px 0 20px;color:#2a1a0c">O Grito da Anne</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:10px 0 28px;font-family:'JetBrains Mono',monospace"><div style="border:1px solid rgba(90,55,20,.35);padding:16px"><div style="font-size:30px;color:#8f4f0c">2/3</div><div style="font-size:12px;color:#7a5530">aquecimento</div></div><div style="border:1px solid rgba(90,55,20,.35);padding:16px"><div style="font-size:30px;color:#8f4f0c">3,5/5</div><div style="font-size:12px;color:#7a5530">quiz do grito</div></div><div style="border:1px solid rgba(90,55,20,.35);padding:16px"><div style="font-size:30px;color:#9c2c18">90</div><div style="font-size:12px;color:#7a5530">ouro da Anne no teste</div></div></div>
+  <p>No aquecimento, apareceu um padrão que vem desde o Dia 18: ele explica muito bem a causa e para antes da consequência. Sabe por que o <code style="font-family:'JetBrains Mono',monospace">nextInt</code> quebra com "abc", mas não disse o que acontece quando ele é chamado de novo dentro da rede. Sabe qual erro passa pela rede errada, mas não disse que o programa morre. Falta sempre uma frase, a que começa com "então".</p>
+  <p>O <code style="font-family:'JetBrains Mono',monospace">pagar</code> do Dia 18 devolvia <code style="font-family:'JetBrains Mono',monospace">false</code>, um aviso baixinho que dava para ignorar. Hoje ele aprendeu a gritar. O erro virou uma classe, filha da <code style="font-family:'JetBrains Mono',monospace">Exception</code>, e a herança do Dia 19 apareceu onde ninguém esperava. O <code style="font-family:'JetBrains Mono',monospace">throws</code> é o aviso na porta. O <code style="font-family:'JetBrains Mono',monospace">throw</code> é o grito. E, por causa do aviso, o Java não deixa ninguém chamar o método sem rede.</p>
+  <p>No quiz, a pegadinha voltou com um termo técnico que não apareceu na aula, "checked exception". Correto, mas sem responder o que a pergunta pedia: o programa nem roda, mesmo quando o Barba tem as moedas.</p>
+  <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;border:1px solid #6b2a22;background:#1d1110;padding:24px;margin:28px 0"><div style="font-family:'JetBrains Mono',monospace;font-size:56px;color:#e06a52;line-height:1">[1]</div><div style="flex:1;min-width:220px"><div style="font-family:'IM Fell English',serif;font-size:26px;color:#f1e6cc">Monstro: o False Ignorado</div><div style="color:#cfc3a8;font-size:17px">O <code style="font-family:'JetBrains Mono',monospace">return false</code> que ninguém olhava. Trocado por um grito que o Java obriga a pegar.</div></div></div>
+<pre style="margin:20px 0;padding:18px;background:#0e0c09;border:1px solid #2a241b;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#7fc89a">Narrador: O Barba Cinza paga 20, resmungando.
+Narrador: Barba Cinza só tem 40moedas!
+Daniel | Ouro: 70
+Barba Cinza | Ouro: 40</pre>
+  <p>A segunda cobrança gritou, e o <code style="font-family:'JetBrains Mono',monospace">receber(200)</code> foi pulado. O capitão ficou com 70, e não com 270. O Espaço Invisível apareceu de novo, em "40moedas". Ele é o monstro mais antigo desta viagem e nunca morre de vez.</p>
+  <p>No jogo, a ideia era ganhar da Anne até ela ficar sem dinheiro. Aconteceu o contrário. Ela foi de 40 para 90, ele foi de 50 para zero, e quem ouviu <em style="color:#8f4f0c">"Sem ouro? Volte quando for gente"</em> foi ele. Num empate de 18 a 18, a vitória foi dela, porque o <code style="font-family:'JetBrains Mono',monospace">if</code> pede maior, e não maior ou igual.</p>
+  <p>Então veio o truque que separa quem joga de quem programa: montar o cenário. A Anne nasceu com 5 moedas, perdeu na primeira, e gritou.</p>
+<pre style="margin:20px 0;padding:18px;background:#0e0c09;border:1px solid #2a241b;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#7fc89a">Narrador : A mão de Anne bate na mesa. A taverna explode em gritos!
+Anne : Anne vira os bolsos: so tem 5 moedas. Hoje nao, marujo.
+Seu ouro: 50</pre>
+<details style="background:#0e0c09;border:1px solid #2a241b;margin:20px 0"><summary style="padding:12px 18px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#7fc89a">Forja.java: o grito pego no ar</summary><pre style="margin:0;padding:0 18px 18px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#d8d0bd">try {
+    rival.pagar(10);
+    ouro = ouro + 10;
+} catch (OuroInsuficienteException e) {
+    System.out.println(rival.getNome() + " : " + e.getMessage());
+}</pre></details>
+  <p>O teste da recusa estava pendente desde o Dia 18. Rodou cinco dias depois, com um grito no lugar de um <code style="font-family:'JetBrains Mono',monospace">false</code>.</p>
+</section>
+
 <section id="placar" data-screen-label="Placar" style="padding:70px 0 20px">
   <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:0 0 24px;color:#2a1a0c">Placar</h2>
   <div style="display:flex;flex-direction:column;font-family:'JetBrains Mono',monospace;font-size:15px">
@@ -702,13 +729,13 @@ class Component extends DCLogic {
     }, 70);
   };
   renderVals() {
-    const done = 22;
-    const labels = ['PATH e IntelliJ','Primeiro programa','Variáveis e tipos','Scanner','if / else','switch','while, for, Random','Chefe: Kraken','Métodos','Arrays','Strings','ArrayList','HashMap','Revisão da Ilha 2','Chefe: Espantalho','Classes e objetos','Construtores','Métodos de objeto','Encapsulamento','Herança','Polimorfismo','Chefe: Rei sem Construtor','Exceções','Exceções próprias'];
+    const done = 23;
+    const labels = ['PATH e IntelliJ','Primeiro programa','Variáveis e tipos','Scanner','if / else','switch','while, for, Random','Chefe: Kraken','Métodos','Arrays','Strings','ArrayList','HashMap','Revisão da Ilha 2','Chefe: Espantalho','Classes e objetos','Construtores','Métodos de objeto','Encapsulamento','Herança','Polimorfismo','Chefe: Rei sem Construtor','Exceções','Exceções próprias','finally e arquivos'];
     const days = Array.from({ length: 31 }, (_, i) => ({
       n: i, label: labels[i] || '—',
-      href: i <= 22 ? '#d' + i : '#placar',
+      href: i <= 23 ? '#d' + i : '#placar',
       color: i <= done ? '#e9dfc8' : '#6a604e',
-      dot: i <= done ? '#7fc89a' : i <= 23 ? '#e0a94a' : '#3a3226'
+      dot: i <= done ? '#7fc89a' : i <= 24 ? '#e0a94a' : '#3a3226'
     }));
     days.splice(8, 0, { n: 'MN', label: 'Maré Negra', href: '#mare', color: '#6fb3b0', dot: '#6fb3b0' });
     const v = this.state.result;
@@ -750,7 +777,9 @@ class Component extends DCLogic {
         { d: '21', t: 'Batalha contra o Rei sem Construtor', st: 'vitória', c: '#e0a94a' },
         { d: '22', t: 'Quiz da rede', st: '4 / 5', c: '#7fc89a' },
         { d: '22', t: 'A taverna à prova de dedo torto', st: 'vitória', c: '#7fc89a' },
-        { d: '23', t: 'Exceções próprias', st: 'próximo', c: '#9a8d74' },
+        { d: '23', t: 'Quiz do grito', st: '3,5 / 5', c: '#e0a94a' },
+        { d: '23', t: 'O grito da Anne', st: 'vitória', c: '#7fc89a' },
+        { d: '24', t: 'finally e arquivos', st: 'próximo', c: '#9a8d74' },
         { d: '+', t: 'Desafio do iPhone', st: 'em aberto', c: '#e0a94a' }
       ]
     };
