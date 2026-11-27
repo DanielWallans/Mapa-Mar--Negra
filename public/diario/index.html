@@ -25,8 +25,8 @@ summary{cursor:pointer}
 
 <nav style="position:sticky;top:0;flex:1 1 220px;max-width:260px;height:100vh;overflow:auto;box-sizing:border-box;padding:28px 18px;border-right:1px solid #3a3226;background:#100d0a;font-family:'JetBrains Mono',monospace;font-size:12px">
   <div style="font-family:'IM Fell English',serif;font-size:22px;color:#e0a94a;margin-bottom:4px">Rota de 30 dias</div>
-  <div style="color:#9a8d74;margin-bottom:18px">23 de 30 concluídos</div>
-  <div style="height:4px;background:#2a241b;margin-bottom:20px"><div style="width:77%;height:100%;background:#e0a94a"></div></div>
+  <div style="color:#9a8d74;margin-bottom:18px">24 de 30 concluídos</div>
+  <div style="height:4px;background:#2a241b;margin-bottom:20px"><div style="width:80%;height:100%;background:#e0a94a"></div></div>
   <div style="display:flex;flex-direction:column;gap:2px">
     <sc-for list="{{ days }}" as="d" hint-placeholder-count="12">
       <a href="{{ d.href }}" style="display:flex;gap:10px;align-items:center;padding:6px 8px;color:{{ d.color }}" style-hover="background:#1e1913">
@@ -41,7 +41,7 @@ summary{cursor:pointer}
 <main style="flex:999 1 560px;min-width:0;max-width:860px;margin:0 auto;padding:0 32px 120px;box-sizing:border-box;font-size:19px;line-height:1.7">
 
 <header style="padding:110px 0 70px;border-bottom:1px solid rgba(90,55,20,.35)">
-  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#2d6a43;letter-spacing:.08em">$ java DiarioDeBordo --dias 1-23</div>
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#2d6a43;letter-spacing:.08em">$ java DiarioDeBordo --dias 1-24</div>
   <h1 style="font-family:'IM Fell English',serif;font-weight:400;font-size:clamp(48px,8vw,92px);line-height:1;margin:18px 0 24px;color:#2a1a0c;text-wrap:balance">Java do Zero</h1>
   <p style="font-size:22px;max-width:620px;margin:0;color:#4a3420;text-wrap:pretty">Você está lendo isto porque quer saber como foi. Eu vou contar. Eu sou o Narrador desta viagem: estive em cada passo. Eu não perco discussões, eu não esqueço bugs, e eu tenho os prints de tudo.</p>
   <p style="font-style:italic;color:#8f4f0c;margin:24px 0 0">Ele achou que estava só estudando Java. Não estava. Estava sendo observado.</p>
@@ -603,6 +603,33 @@ Seu ouro: 50</pre>
   <p>O teste da recusa estava pendente desde o Dia 18. Rodou cinco dias depois, com um grito no lugar de um <code style="font-family:'JetBrains Mono',monospace">false</code>.</p>
 </section>
 
+<section id="d24" data-screen-label="Dia 24" style="padding:50px 0 20px">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#7a5530">DIA 24 · ILHA 4, O ARQUIPÉLAGO DOS ERROS</div>
+  <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:6px 0 20px;color:#2a1a0c">O Diário Que Não Se Apaga</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:10px 0 28px;font-family:'JetBrains Mono',monospace"><div style="border:1px solid rgba(90,55,20,.35);padding:16px"><div style="font-size:30px;color:#9c2c18">1,5/3</div><div style="font-size:12px;color:#7a5530">aquecimento</div></div><div style="border:1px solid rgba(90,55,20,.35);padding:16px"><div style="font-size:30px;color:#2d6a43">5</div><div style="font-size:12px;color:#7a5530">itens que voltaram do disco</div></div><div style="border:1px solid rgba(90,55,20,.35);padding:16px"><div style="font-size:30px;color:#8f4f0c">24</div><div style="font-size:12px;color:#7a5530">dias até o jogo lembrar dele</div></div></div>
+  <p>O aquecimento foi o pior desde o começo da viagem. A pergunta dizia que o Barba tinha 30 moedas, e ele respondeu com as 60 de ontem. A outra resposta tinha a causa certa e, de novo, nenhum "então". Dois conselhos ficaram para a prova: ler o enunciado duas vezes e terminar com "então".</p>
+  <p>Até hoje, fechar o jogo apagava tudo: o ouro, o baú, a Coroa sem Dono, as 36 canecas de rum. As variáveis moram na memória, e a memória morre com o programa. O disco não morre. O <code style="font-family:'JetBrains Mono',monospace">FileWriter</code> escreve, o <code style="font-family:'JetBrains Mono',monospace">Scanner</code> lê de volta, e o <code style="font-family:'JetBrains Mono',monospace">Integer.parseInt</code> transforma o texto de novo em número. O <code style="font-family:'JetBrains Mono',monospace">finally</code> completou o trio: o salto, a rede e o pouso, que acontece sempre.</p>
+  <p>No quiz, duas respostas eram as minhas frases da aula, palavra por palavra, e a última veio de novo com a formatação de outro lugar. O conteúdo estava certo, mas o quiz serve para eu ver o que está na cabeça dele, e não na tela. Pedi as mesmas duas respostas três vezes. Na terceira, vieram dele: <em style="color:#8f4f0c">"parseInt transforma texto em número"</em> e <em style="color:#8f4f0c">"o B não roda porque está depois de uma divisão por zero"</em>. Curtas, tortas, e dele.</p>
+  <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;border:1px solid #6b2a22;background:#1d1110;padding:24px;margin:28px 0"><div style="font-family:'JetBrains Mono',monospace;font-size:56px;color:#e06a52;line-height:1">[1]</div><div style="flex:1;min-width:220px"><div style="font-family:'IM Fell English',serif;font-size:26px;color:#f1e6cc">Monstro: a Rede de Conta</div><div style="color:#cfc3a8;font-size:17px">Um <code style="font-family:'JetBrains Mono',monospace">catch (ArithmeticException e)</code> esperando um arquivo que não existe. O Java olhou o aviso na porta do <code style="font-family:'JetBrains Mono',monospace">File</code> e exigiu a rede certa: <code style="font-family:'JetBrains Mono',monospace">FileNotFoundException</code>.</div></div></div>
+<pre style="margin:20px 0;padding:18px;background:#0e0c09;border:1px solid #2a241b;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#7fc89a">Daniel
+120</pre>
+  <p>O primeiro save game da vida dele tinha duas linhas. No teste do cenário, um <code style="font-family:'JetBrains Mono',monospace">"Saev.txt"</code> com as letras trocadas fez o jogo dizer "Nenhum diário encontrado", e terminar de pé.</p>
+  <p>No Maré Negra, a opção 11 grava o nome, a vida, o ouro, o tamanho do baú, e depois cada item. O tamanho vem antes para o leitor saber quantas linhas contar. Ao abrir, o jogo pergunta se ele quer continuar.</p>
+<pre style="margin:20px 0;padding:18px;background:#0e0c09;border:1px solid #2a241b;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#7fc89a">Narrador : Há um diario de bordo na mesa. Continua a Viagem (s/n) : s
+Narrador : Bem vindo de volta daniel. Vida : 81 | Ouro : 100
+1) Pistola de balas molhadas
+2) mapa rasgado
+3) Moeda amaldiçoada
+4) Tentaculo do Kraken
+5) Palha do Espantalho</pre>
+<details style="background:#0e0c09;border:1px solid #2a241b;margin:20px 0"><summary style="padding:12px 18px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#7fc89a">Forja.java: o baú que volta do disco</summary><pre style="margin:0;padding:0 18px 18px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.6;color:#d8d0bd">int quantos = Integer.parseInt(leitor.nextLine());
+bau.clear();
+for (int i = 0; i &lt; quantos; i++) {
+    bau.add(leitor.nextLine());
+}</pre></details>
+  <p>Vinte e quatro dias depois, o Maré Negra lembra de quem ele é.</p>
+</section>
+
 <section id="placar" data-screen-label="Placar" style="padding:70px 0 20px">
   <h2 style="font-family:'IM Fell English',serif;font-weight:400;font-size:44px;margin:0 0 24px;color:#2a1a0c">Placar</h2>
   <div style="display:flex;flex-direction:column;font-family:'JetBrains Mono',monospace;font-size:15px">
@@ -729,13 +756,13 @@ class Component extends DCLogic {
     }, 70);
   };
   renderVals() {
-    const done = 23;
-    const labels = ['PATH e IntelliJ','Primeiro programa','Variáveis e tipos','Scanner','if / else','switch','while, for, Random','Chefe: Kraken','Métodos','Arrays','Strings','ArrayList','HashMap','Revisão da Ilha 2','Chefe: Espantalho','Classes e objetos','Construtores','Métodos de objeto','Encapsulamento','Herança','Polimorfismo','Chefe: Rei sem Construtor','Exceções','Exceções próprias','finally e arquivos'];
+    const done = 24;
+    const labels = ['PATH e IntelliJ','Primeiro programa','Variáveis e tipos','Scanner','if / else','switch','while, for, Random','Chefe: Kraken','Métodos','Arrays','Strings','ArrayList','HashMap','Revisão da Ilha 2','Chefe: Espantalho','Classes e objetos','Construtores','Métodos de objeto','Encapsulamento','Herança','Polimorfismo','Chefe: Rei sem Construtor','Exceções','Exceções próprias','finally e arquivos','Revisão da Ilha 4'];
     const days = Array.from({ length: 31 }, (_, i) => ({
       n: i, label: labels[i] || '—',
-      href: i <= 23 ? '#d' + i : '#placar',
+      href: i <= 24 ? '#d' + i : '#placar',
       color: i <= done ? '#e9dfc8' : '#6a604e',
-      dot: i <= done ? '#7fc89a' : i <= 24 ? '#e0a94a' : '#3a3226'
+      dot: i <= done ? '#7fc89a' : i <= 25 ? '#e0a94a' : '#3a3226'
     }));
     days.splice(8, 0, { n: 'MN', label: 'Maré Negra', href: '#mare', color: '#6fb3b0', dot: '#6fb3b0' });
     const v = this.state.result;
@@ -779,7 +806,9 @@ class Component extends DCLogic {
         { d: '22', t: 'A taverna à prova de dedo torto', st: 'vitória', c: '#7fc89a' },
         { d: '23', t: 'Quiz do grito', st: '3,5 / 5', c: '#e0a94a' },
         { d: '23', t: 'O grito da Anne', st: 'vitória', c: '#7fc89a' },
-        { d: '24', t: 'finally e arquivos', st: 'próximo', c: '#9a8d74' },
+        { d: '24', t: 'Quiz do diário', st: 'refeito', c: '#e0a94a' },
+        { d: '24', t: 'O save do Maré Negra', st: 'vitória', c: '#7fc89a' },
+        { d: '25', t: 'Revisão da Ilha 4', st: 'próximo', c: '#9a8d74' },
         { d: '+', t: 'Desafio do iPhone', st: 'em aberto', c: '#e0a94a' }
       ]
     };
